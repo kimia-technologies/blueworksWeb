@@ -1,0 +1,765 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Accueil</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+            ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'blueworks/img/logo/blueworks.png' %}">
+    <!-- Google Fonts
+            ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+    <!-- Bootstrap CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/bootstrap.min.css' %}">
+    <!-- Bootstrap CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/font-awesome.min.css' %}">
+    <!-- animate CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/animate.css' %}">
+    <!-- normalize CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/normalize.css' %}">
+    <!-- meanmenu icon CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/meanmenu.min.css' %}">
+    <!-- main CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/main.css' %}">
+    <!-- morrisjs CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/morrisjs/morris.css' %}">
+    <!-- mCustomScrollbar CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/scrollbar/jquery.mCustomScrollbar.min.css' %}">
+    <!-- metisMenu CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu-vertical.css' %}">
+    <!-- x-editor CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/bootstrap-editable.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/x-editor-style.css' %}">
+    <!-- normalize CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/data-table/bootstrap-table.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/data-table/bootstrap-editable.css' %}">
+    <!-- style CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/style.css' %}">
+    <!-- responsive CSS
+            ============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/responsive.css' %}">
+    <!-- modernizr JS
+            ============================================ -->
+    <script src="{% static 'blueworks/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <style type="text/css">
+        body {
+            font-family: 'Varela Round', sans-serif;
+        }
+
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+
+        .modal-confirm .modal-content {
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .modal-confirm .modal-header {
+            border-bottom: none;
+            position: relative;
+        }
+
+        .modal-confirm h4 {
+            text-align: center;
+            font-size: 26px;
+            margin: 30px 0 -10px;
+        }
+
+        .modal-confirm .close {
+            position: absolute;
+            top: -5px;
+            right: -2px;
+        }
+
+        .modal-confirm .modal-body {
+            color: #999;
+        }
+
+        .modal-confirm .modal-footer {
+            border: none;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 10px 15px 25px;
+        }
+
+        .modal-confirm .modal-footer a {
+            color: #999;
+        }
+
+        .modal-confirm .icon-box {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            z-index: 9;
+            text-align: center;
+            border: 3px solid #f15e5e;
+        }
+
+        .modal-confirm .icon-box i {
+            color: #f15e5e;
+            font-size: 46px;
+            display: inline-block;
+            margin-top: 13px;
+        }
+
+        .modal-confirm .btn {
+            color: #fff;
+            border-radius: 4px;
+            background: #60c7c1;
+            text-decoration: none;
+            transition: all 0.4s;
+            line-height: normal;
+            min-width: 120px;
+            border: none;
+            min-height: 40px;
+            border-radius: 3px;
+            margin: 0 5px;
+            outline: none !important;
+        }
+
+        .modal-confirm .btn-info {
+            background: #c1c1c1;
+        }
+
+        .modal-confirm .btn-info:hover,
+        .modal-confirm .btn-info:focus {
+            background: #a8a8a8;
+        }
+
+        .modal-confirm .btn-danger {
+            background: #f15e5e;
+        }
+
+        .modal-confirm .btn-danger:hover,
+        .modal-confirm .btn-danger:focus {
+            background: #ee3535;
+        }
+
+        .trigger-btn {
+            display: inline-block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- left menu -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header" style="margin-top: 5px">
+                <a href="index.html"><img class="main-logo" src="{% static 'blueworks/img/logo/blueworks.png' %}"
+                        height="100" width="100" alt="" /></a>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        <li onclick="window.location='/blueworks/dashboard.html'" style="color: grey; font-weight: 500;
+                                font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Tableau de bord</span>
+                        </li>
+                        <li onclick="window.location.reload(true)" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                            font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Reservations</span>
+                        </li>
+                        <li onclick="window.location='/blueworks/coworker.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;" class="test">
+                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Coworker</span>
+                        </li>
+                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Animateurs</span>
+                        </li>
+                        <li onclick="window.location='./mailbox.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Courrier</span>
+                        </li>
+                        <li onclick="window.location='/blueworks/sites.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                Gerer Site
+                        </li>
+                        <li onclick="window.location='./dashboard.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Notifications</span>
+                        </li>
+                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Liens</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index.html"><img class="main-logo"
+                                src="{% static 'blueworks/img/logo/blueworks.png' %}" height="50" width="50"
+                                alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid" style="background-color: rgb(0, 111, 186)">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse"
+                                                class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="fa fa-bars"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                            <ul class="nav navbar-nav mai-top-nav">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-envelope-o adminpro-chat-pro"
+                                                            aria-hidden="true"></i><span
+                                                            class="indicator-ms"></span></a>
+                                                    <!-- <div role="menu" style="background-color: rgb(0, 111, 186)"
+                                                        class="author-message-top dropdown-menu animated zoomIn" style="border: 1px solid white">
+                                                        <div class="message-single-top" style="border: 1px solid white">
+                                                            <h1>Message</h1>
+                                                        </div>
+                                                        <ul class="message-menu" style="border: 1px solid white">
+                                                            <li style="border: 1px solid white">
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="{% static 'blueworks/img/contact/3.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="{% static 'blueworks/img/contact/2.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="message-view">
+                                                            <a href="#">View All Messages</a>
+                                                        </div>
+                                                    </div> -->
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-bell-o" aria-hidden="true"></i><span
+                                                            class="indicator-nt"></span></a>
+                                                    <!-- <div role="menu"
+                                                        class="notification-author dropdown-menu animated zoomIn">
+                                                        <div class="notification-single-top">
+                                                            <h1>Notifications</h1>
+                                                        </div>
+                                                        <ul class="notification-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-eraser adminpro-shield"
+                                                                            aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-line-chart adminpro-analytics-arrow"
+                                                                            aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="notification-view">
+                                                            <a href="#">View All Notification</a>
+                                                        </div>
+                                                    </div> -->
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-user adminpro-user-rounded header-riht-inf"
+                                                            aria-hidden="true"></i>
+                                                        <span class="admin-name" id="nom"></span>
+                                                        <i
+                                                            class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                                    </a>
+                                                    <ul role="menu" style="background-color:  rgb(0, 111, 186)"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href="#"><span class="fa fa-user author-log-ic"></span>My
+                                                                Profile</a>
+                                                        </li>
+                                                        <li><a href="/blueworks/logout"><span
+                                                                    class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="metismenu" id="menu1">
+                                        <li onclick="window.location='/blueworks/dashboard.html'" style="color: grey; font-weight: 500;
+                                                    font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Tableau de bord</span>
+                                        </li>
+                                        <li onclick="window.location.reload(true)" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                                                font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Reservations</span>
+                                        </li>
+                                        <li onclick="window.location='/blueworks/coworker.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Coworker</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Animateurs</span>
+                                        </li>
+                                        <li onclick="window.location='./mailbox.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Courrier</span>
+                                        </li>
+                                        <li onclick="window.location='/blueworks/sites.html'" style="color: grey; font-weight: 500;
+                                            font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                Gerer Site
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Notifications</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Liens</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Data Table Start -->
+        <div class="data-table-area mg-tb-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline13-list">
+                            <div class="sparkline13-hd">
+                                <div class="main-sparkline13-hd">
+                                    <h1>Listes des reservations</h1>
+                                </div>
+                            </div>
+                            <div class="sparkline13-graph">
+                                <div class="datatable-dashv1-list custom-datatable-overright">
+                                    <button type="button" class="btn btn-custon-four btn-primary" data-toggle="modal"
+                                        data-target="#myModal" style="background-color: rgb(0, 111, 186)">
+                                        <i class="fa fa-plus adminpro-informatio" aria-hidden="true"></i>
+                                    </button>
+                                    <div class="modal fade" id="myModal">
+                                        <div
+                                            class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color: rgb(0, 111, 186)">
+                                                    <h4 class="modal-title" style="font-size: 20px; color: white">
+                                                        Nouvelle reservation</h4>
+                                                    <button class="close" data-dismiss="modal"
+                                                        style="color: white; margin-top: -25px">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <label for="">Email</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-envelope"
+                                                                    aria-hidden="true"></i></span>
+                                                            <input type="email"
+                                                                class="form-control pro-edt-select form-control-primary input-lg"
+                                                                placeholder="example@gmail.com">
+                                                        </div>
+                                                        <label for="">Type d'espace</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-forumbee"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select id="type"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Formule</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-bookmark"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select id="formule"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Date</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"
+                                                                    aria-hidden="true"></i></span>
+                                                            <input type="date" class="form-control input-lg"
+                                                                min="2019-09-30">
+                                                        </div>
+                                                        <label for="">Tranche horaire</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-clock-o"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select id="tranche"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Nombre de coworker</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i
+                                                                    class="fa fa-sort-numeric-asc"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select id="coworker"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <button type="button" class="btn btn-custon-four btn-primary"
+                                                            onclick="window.location='./Accueil.html'"
+                                                            style="background-color: rgb(0, 111, 186); width: 100%;">
+                                                            <i class="fa fa-check adminpro-informatio"
+                                                                aria-hidden="true"></i>
+                                                            Valider</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="myModalDelete" class="modal fade">
+                                        <input type="hidden" id="delete_id">
+                                        <div class="modal-dialog modal-confirm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="icon-box">
+                                                        <i class="material-icons">&#xE5CD;</i>
+                                                    </div>
+                                                    <h4 class="modal-title">Are you sure?</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Do you really want to delete these records? This process cannot
+                                                        be
+                                                        undone.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-info"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button id="delete" data-dismiss="modal" type="button"
+                                                        class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true"
+                                        data-show-columns="true" data-show-pagination-switch="true"
+                                        data-url='{% url "reservation" %}' data-show-refresh="true"
+                                        data-key-events="true" data-show-toggle="true" data-resizable="true"
+                                        data-cookie="true" data-cookie-id-table="saveId" data-show-export="true"
+                                        data-click-to-select="true">
+                                        <thead>
+                                            <tr>
+                                                <th data-field="ID" data-visible="true">ID</th>
+                                                <th data-field="NOM" data-sortable="true">Nom</th>
+                                                <th data-field="EMAIL">Email</th>
+                                                <th data-field="FORMULE" data-sortable="true">Formule</th>
+                                                <th data-field="SALLE" data-sortable="true">Salle</th>
+                                                <th data-field="NBCOWORKER">Nb coworker</th>
+                                                <th data-field="JOUR" data-sortable="true">Date Reserve</th>
+                                                <th data-field="TRANCHE">Tranche</th>
+                                                <th data-field="EXPIRE" data-sortable="true">Expire le</th>
+                                                <th data-field="DATE" data-sortable="true">Date du jour</th>
+                                                <th data-field="ETAT" data-sortable="true">Etat</th>
+                                                <th data-field="OPTION">Options</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area" style="background-color: rgb(0, 111, 186); height: 50px; margin-left: -4px">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right" style="position: relative; top: -14px">
+                            <p>Copyright &copy; 2019 <a href="https://colorlib.com/wp/templates/">#BlueWorkS</a> All
+                                rights reserved.</p>
+                            <p>By Kimia technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery
+		============================================ -->
+    <script src="{% static 'blueworks/js/vendor/jquery-1.11.3.min.js' %}"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/bootstrap.min.js' %}"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/wow.min.js' %}"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery-price-slider.js' %}"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.meanmenu.js' %}"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/owl.carousel.min.js' %}"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.sticky.js' %}"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.scrollUp.min.js' %}"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/scrollbar/mCustomScrollbar-active.js' %}"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/metisMenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/metisMenu/metisMenu-active.js' %}"></script>
+    <!-- data table JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/tableExport.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/data-table-active.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-resizable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/colResizable-1.5.source.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-export.js' %}"></script>
+    <!--  editable JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/editable/jquery.mockjax.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/mock-active.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/select2.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/moment.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/xediable-active.js' %}"></script>
+    <!-- Chart JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/chart/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/peity/peity-active.js' %}"></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/tab.js' %}"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/plugins.js' %}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/main.js' %}"></script>
+    <script lang="javascript">
+        (function ($) {
+            $(document).load(console.log(JSON.stringify('{{request.session}}')));
+            $.getJSON('/blueworks/type', function (data) {
+                $('.type').remove();
+                data.map(type => {
+                    $('#type').append($('<option class="type"></option>').attr('invite', type.INV)
+                        .val(type.NOM)
+                        .html(type.NOM));
+                });
+                $('#type option').removeClass('select');
+                $('#type option:eq(0)').addClass('select');
+                populate_formule();
+                populate_coworker();
+            });
+
+            function populate_formule() {
+                $.getJSON('/blueworks/values?t=' + $('#type').val(), function (data) {
+                    $('.formule').remove();
+                    data.map(formule => {
+                        $('#formule').append($('<option class="formule"></option>').attr('periode',
+                                formule.PERIODE).val(formule.FORMULE)
+                            .html(formule.NOM));
+                    });
+                    $('#formule option').removeClass('select');
+                    $('#formule option:eq(0)').addClass('select');
+                    populate_tranche();
+                });
+            }
+
+            function populate_coworker() {
+                const tranches = Array.from({
+                    length: $('#type .select').attr('invite')
+                }, (x, i) => i + 1);
+                $('.coworker').remove();
+                tranches.map(t => {
+                    $('#coworker').append($('<option class="coworker"></option>').val(t).html(t));
+                });
+            }
+
+            function populate_tranche() {
+                $('.tranche').remove();
+                const tab = $('#formule .select').attr('periode') == 0 ? [
+                        $('<option class="tranche">08h - 14h</option>').val('08h-14h'),
+                        $('<option class="tranche">08h - 14h</option>').val('08h-14h')
+                    ] : Array
+                    .from({
+                        length: 13
+                    }, (x, i) => i + 8).map(t => (
+                        $('<option class="tranche"></option>').val(t).html(t + 'h')
+                    ));
+                tab.forEach(el => {
+                    $('#tranche').append(el);
+                });
+            }
+            $('#type').on('click', 'option', function () {
+                $('#type option').removeClass('select');
+                $(this).addClass('select');
+                populate_formule();
+                populate_coworker();
+            });
+            $('#formule').on('click', 'option', function () {
+                $('#formule option').removeClass('select');
+                $(this).addClass('select');
+                populate_tranche();
+            });
+            $('#delete').on('click', function () {
+                $.ajax({
+                    url: '{% url "reservation" %}',
+                    method: 'DELETE',
+                    data: {
+                        id: $('#delete_id').val(),
+                    },
+                    dataType: 'JSON',
+                    async: true
+                });
+            });
+        })(jQuery);
+    </script>
+</body>
+
+</html>

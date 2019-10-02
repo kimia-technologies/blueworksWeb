@@ -1,0 +1,2 @@
+pyjwt
+django_chartit

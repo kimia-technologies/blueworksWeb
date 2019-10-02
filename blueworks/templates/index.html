@@ -1,0 +1,92 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Login | BlueWorkS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- favicon
+		============================================ -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'blueworks/img/logo/blueworks.png' %}">
+  <!-- Google Fonts
+		============================================ -->
+  <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+  <!-- Bootstrap CSS
+		============================================ -->
+  <link rel="stylesheet" href="{% static 'blueworks/css/bootstrap.min.css' %}">
+  <!-- Bootstrap CSS
+		============================================ -->
+  <link rel="stylesheet" href="{% static 'blueworks/css/font-awesome.min.css' %}">
+  <!-- forms CSS
+		============================================ -->
+  <link rel="stylesheet" href="{% static 'blueworks/css/form/all-type-forms.css' %}">
+  <!-- style CSS
+		============================================ -->
+  <link rel="stylesheet" href="{% static 'blueworks/style.css' %}">
+  <!-- responsive CSS
+		============================================ -->
+  <link rel="stylesheet" href="{% static 'blueworks/css/responsive.css' %}">
+</head>
+
+<body>
+  <div class="color-line"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+      <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
+        <div class="text-center m-b-md custom-login"><br>
+          <img src="{% static 'blueworks/img/logo/blueworks.png' %}" height="120" width="120" alt="">
+          <p>Great places to focus on what matters...</p>
+          <h3>LOGIN</h3>
+        </div>
+        <div class="hpanel">
+          <div class="panel-body">
+            <form action="/blueworks/login" method="POST" id="loginForm">
+              <label for="">Email</label>
+              <div class="input-group mg-b-15">
+                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <input type="text" name="id" class="form-control input-lg" placeholder="e-mail, phone or pseudo">
+              </div>
+              <label for="">Mot de passe</label>
+              <div class="input-group mg-b-15">
+                <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                <input type="password" name="p" class="form-control input-lg" placeholder="password">
+              </div>
+              <input type="hidden" name="s" value="BlueWorkS1">
+              {% if msg != None and level == 1 %}
+              <div>
+                <p style="color: yellowgreen; text-align: center">{{msg}}</p>
+              </div>
+              {% endif %}
+              {% if msg != None and level == 0 %}
+              <div>
+                <p style="color: red; text-align: center">{{msg}}</p>
+              </div>
+              {% endif %}
+              <button class="btn btn-success btn-block loginbtn">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <p>Copyright &copy; 2019 <a href="https://blueworkspaces.com/">BlueWorkS</a> All rights reserved.
+          <br>By Kimia technologies</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- jquery
+		============================================ -->
+  <script src="{% static 'blueworks/js/vendor/jquery-1.11.3.min.js' %}"></script>
+  <!-- bootstrap JS
+		============================================ -->
+  <script src="{% static 'blueworks/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

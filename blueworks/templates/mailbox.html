@@ -1,0 +1,809 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mail | BlueWorkS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo/blueworks.png">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header" style="margin-top: 5px">
+                <a href="index.html"><img class="main-logo" src="img/logo/blueworks.png" height="100" width="100"
+                        alt="" /></a>
+                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                    font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Tableau de bord</span>
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                    font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Resevations</span>
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Utilisateurs</span>
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Animateurs</span>
+                        </li>
+                        <li onclick="window.location='./mailbox.html'" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                                font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Courrier</span>
+                        </li>
+                        <li onclick="window.location='./sites.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                Gerer Site
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Notifications</span>
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Liens</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index.html"><img class="main-logo" src="img/logo/blueworks.png" height="50" width="50"
+                                alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid" style="background-color: rgb(0, 111, 186)">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse"
+                                                class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="fa fa-bars"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                            <ul class="nav navbar-nav mai-top-nav">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-envelope-o adminpro-chat-pro"
+                                                            aria-hidden="true"></i><span
+                                                            class="indicator-ms"></span></a>
+                                                    <!-- <div role="menu" style="background-color: rgb(0, 111, 186)"
+                                                        class="author-message-top dropdown-menu animated zoomIn" style="border: 1px solid white">
+                                                        <div class="message-single-top" style="border: 1px solid white">
+                                                            <h1>Message</h1>
+                                                        </div>
+                                                        <ul class="message-menu" style="border: 1px solid white">
+                                                            <li style="border: 1px solid white">
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/3.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="message-img">
+                                                                        <img src="img/contact/2.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="message-content">
+                                                                        <span class="message-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="message-view">
+                                                            <a href="#">View All Messages</a>
+                                                        </div>
+                                                    </div> -->
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-bell-o" aria-hidden="true"></i><span
+                                                            class="indicator-nt"></span></a>
+                                                    <!-- <div role="menu"
+                                                        class="notification-author dropdown-menu animated zoomIn">
+                                                        <div class="notification-single-top">
+                                                            <h1>Notifications</h1>
+                                                        </div>
+                                                        <ul class="notification-menu">
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-eraser adminpro-shield"
+                                                                            aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#">
+                                                                    <div class="notification-icon">
+                                                                        <i class="fa fa-line-chart adminpro-analytics-arrow"
+                                                                            aria-hidden="true"></i>
+                                                                    </div>
+                                                                    <div class="notification-content">
+                                                                        <span class="notification-date">16 Sept</span>
+                                                                        <h2>Victor Jara</h2>
+                                                                        <p>Please done this project as soon possible.
+                                                                        </p>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="notification-view">
+                                                            <a href="#">View All Notification</a>
+                                                        </div>
+                                                    </div> -->
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-user adminpro-user-rounded header-riht-inf"
+                                                            aria-hidden="true"></i>
+                                                        <span class="admin-name">Steph Walker</span>
+                                                        <i
+                                                            class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                                    </a>
+                                                    <ul role="menu" style="background-color:  rgb(0, 111, 186)"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href="register.html"><span
+                                                                    class="fa fa-home author-log-ic"></span>Register</a>
+                                                        </li>
+                                                        <li><a href="#"><span class="fa fa-user author-log-ic"></span>My
+                                                                Profile</a>
+                                                        </li>
+                                                        <li><a href="lock.html"><span
+                                                                    class="fa fa-diamond author-log-ic"></span> Lock</a>
+                                                        </li>
+                                                        <li><a href="#"><span
+                                                                    class="fa fa-cog author-log-ic"></span>Settings</a>
+                                                        </li>
+                                                        <li><a href="index.html"><span
+                                                                    class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="metismenu" id="menu1">
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                    font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Tableau de bord</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Reservations</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Utilisateurs</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Animateurs</span>
+                                        </li>
+                                        <li onclick="window.location='./mailbox.html'" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Courrier</span>
+                                        </li>
+                                        <li onclick="window.location='./sites.html'" style="color: whitesmoke;
+                                            font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                Gerer Site
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Notifications</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Liens</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mailbox-area mg-tb-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="hpanel responsive-mg-b-30">
+                            <div class="panel-body">
+                                <a href="mailbox-compose.html"
+                                    class="btn btn-success compose-btn btn-block m-b-md">
+                                    <i class="fa fa-plus adminpro-informatio" aria-hidden="true"></i> &nbsp; Nouveau message</a>
+
+                                <ul class="mailbox-list">
+                                    <li class="active">
+                                        <a href="mailbox.html">
+                                            <span class="pull-right">12</span>
+                                            <i class="fa fa-envelope"></i> Inbox
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-paper-plane"></i> Sent</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-pencil"></i> Draft</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-trash"></i> Trash</a>
+                                    </li>
+                                </ul>
+                                <hr>
+                                <ul class="mailbox-list">
+                                    <li>
+                                        <a href="#"><i class="fa fa-plane text-danger"></i> Travel</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-bar-chart text-warning"></i> Finance</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-users text-info"></i> Social</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-tag text-success"></i> Promos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-flag text-primary"></i> Updates</a>
+                                    </li>
+                                </ul>
+                                <hr>
+                                <ul class="mailbox-list">
+                                    <li>
+                                        <a href="#"><i class="fa fa-gears"></i> Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-info-circle"></i> Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="hpanel mg-b-15">
+                            <div class="panel-heading hbuilt mailbox-hd">
+                                <div class="text-center p-xs font-normal">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm"
+                                            placeholder="Search email in your inbox..."> <span class="input-group-btn">
+                                            <button type="button" class="btn btn-sm btn-default">Search
+                                            </button> </span></div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6 col-md-6 col-sm-6 col-xs-12 mg-b-15">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default btn-sm"><i class="fa fa-refresh"></i>
+                                                Refresh</button>
+                                            <button class="btn btn-default btn-sm"><i class="fa fa-eye"></i></button>
+                                            <button class="btn btn-default btn-sm"><i
+                                                    class="fa fa-exclamation"></i></button>
+                                            <button class="btn btn-default btn-sm"><i
+                                                    class="fa fa-trash-o"></i></button>
+                                            <button class="btn btn-default btn-sm"><i class="fa fa-check"></i></button>
+                                            <button class="btn btn-default btn-sm"><i class="fa fa-tag"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-md-6 col-sm-6 col-xs-12 mailbox-pagination mg-b-15">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default btn-sm"><i
+                                                    class="fa fa-arrow-left"></i></button>
+                                            <button class="btn btn-default btn-sm"><i
+                                                    class="fa fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-mailbox">
+                                        <tbody>
+                                            <tr class="unread" onclick="window.location='./mailbox-view.html'">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single checkbox-success">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Jeremy Massey</a></td>
+                                                <td><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                        elit.</a>
+                                                </td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Tue, Nov 25</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Marshall Horne</a></td>
+                                                <td><a href="#">Praesent nec nisl sed neque ornare maximus at ac
+                                                        enim.</a>
+                                                </td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Wed, Jan 13</td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Grant Franco</a> <span
+                                                        class="label label-warning">Finance</span></td>
+                                                <td><a href="#">Etiam maximus tellus a turpis tempor mollis.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Mon, Oct 19</td>
+                                            </tr>
+                                            <tr class="unread active">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ferdinand Meadows</a></td>
+                                                <td><a href="#">Aenean hendrerit ligula eget augue gravida semper.</a>
+                                                </td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sat, Aug 29</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ivor Rios</a> <span
+                                                        class="label label-info">Social</span>
+                                                </td>
+                                                <td><a href="#">Sed quis augue in nunc venenatis finibus.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sat, Dec 12</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Maxwell Murphy</a></td>
+                                                <td><a href="#">Quisque eu tortor quis justo viverra cursus.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, May 17</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Henry Patterson</a></td>
+                                                <td><a href="#">Aliquam nec justo interdum, ornare mi non, elementum
+                                                        lacus.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Thu, Aug 06</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Brent Rasmussen</a></td>
+                                                <td><a href="#">Nam nec turpis sed quam tristique sodales.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, Nov 15</td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single checkbox-success">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Joseph Hurley</a></td>
+                                                <td><a href="#">Nullam tempus leo id urna sagittis blandit.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sun, Aug 10</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Alan Matthews</a></td>
+                                                <td><a href="#">Quisque quis turpis ac quam sagittis scelerisque vel ut
+                                                        urna.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, Mar 27</td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Colby Lynch</a> <span
+                                                        class="label label-danger">Travel</span></td>
+                                                <td><a href="#">Donec non enim pulvinar, ultrices metus eget,
+                                                        condimentum
+                                                        mi.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Thu, Dec 31</td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single checkbox-success">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Jeremy Massey</a></td>
+                                                <td><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                        elit.</a>
+                                                </td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Tue, Nov 25</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Marshall Horne</a></td>
+                                                <td><a href="#">Praesent nec nisl sed neque ornare maximus at ac
+                                                        enim.</a>
+                                                </td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Wed, Jan 13</td>
+                                            </tr>
+                                            <tr class="active">
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Grant Franco</a> <span
+                                                        class="label label-warning">Finance</span></td>
+                                                <td><a href="#">Etiam maximus tellus a turpis tempor mollis.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Mon, Oct 19</td>
+                                            </tr>
+                                            <tr class="unread active">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ferdinand Meadows</a></td>
+                                                <td><a href="#">Aenean hendrerit ligula eget augue gravida semper.</a>
+                                                </td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sat, Aug 29</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Ivor Rios</a> <span
+                                                        class="label label-info">Social</span>
+                                                </td>
+                                                <td><a href="#">Sed quis augue in nunc venenatis finibus.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sat, Dec 12</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Maxwell Murphy</a></td>
+                                                <td><a href="#">Quisque eu tortor quis justo viverra cursus.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, May 17</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Henry Patterson</a></td>
+                                                <td><a href="#">Aliquam nec justo interdum, ornare mi non, elementum
+                                                        lacus.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Thu, Aug 06</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Brent Rasmussen</a></td>
+                                                <td><a href="#">Nam nec turpis sed quam tristique sodales.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, Nov 15</td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="">
+                                                    <div class="checkbox checkbox-single checkbox-success">
+                                                        <input type="checkbox" checked>
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Joseph Hurley</a></td>
+                                                <td><a href="#">Nullam tempus leo id urna sagittis blandit.</a></td>
+                                                <td><i class="fa fa-paperclip"></i></td>
+                                                <td class="text-right mail-date">Sun, Aug 10</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="">
+                                                    <div class="checkbox">
+                                                        <input type="checkbox">
+                                                        <label></label>
+                                                    </div>
+                                                </td>
+                                                <td><a href="#">Alan Matthews</a></td>
+                                                <td><a href="#">Quisque quis turpis ac quam sagittis scelerisque vel ut
+                                                        urna.</a></td>
+                                                <td></td>
+                                                <td class="text-right mail-date">Sun, Mar 27</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <i class="fa fa-eye"> </i> 6 unread
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area" style="background-color: rgb(0, 111, 186); height: 50px;; margin-left: -4px">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right" style="position: relative; top: -14px">
+                            <p>Copyright &copy; 2019 <a href="https://colorlib.com/wp/templates/">#BlueWorkS</a> All
+                                rights reserved.</p>
+                            <p>By Kimia technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jquery
+		============================================ -->
+    <script src="js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="js/metisMenu/metisMenu.min.js"></script>
+    <script src="js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/sparkline/jquery.charts-sparkline.js"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="js/calendar/moment.min.js"></script>
+    <script src="js/calendar/fullcalendar.min.js"></script>
+    <script src="js/calendar/fullcalendar-active.js"></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="js/tab.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
