@@ -274,12 +274,6 @@ def plan(request):
         return JsonResponse({'msg': 'success'})
 
 
-def desc(request):
-    id = request.GET['id']
-    user = Utilisateur.objects.get(email=id)
-    return JsonResponse({'user': user.nom, 'email': user.email})
-
-
 def stats(request, annee, cible):
     rsvs = Reservation.objects.filter(Q(etat=1) | Q(
         etat=-1)).filter(annee=annee)
