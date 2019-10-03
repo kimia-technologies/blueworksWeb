@@ -301,7 +301,8 @@ def desc(request):
 def stats(request, cible):
     rsvs = Reservation.objects.filter(Q(etat=1) | Q(
         etat=-1))
-    annots = rsvs.values('mois').annotate(c=Count('mois'))
+    annots = rsvs.values('mois', 'annee').annotate(
+        c=Count('mois'), a=Count('annee'))
     out = []
     somme = 0
     if cible == 'general':
@@ -312,13 +313,13 @@ def stats(request, cible):
                     somme = somme + \
                         Offre.objects.get(idformule=rsv.idformule,
                                           nomtype=rsv.numespace.nomtype).prix
-            out.append({'mois': mois, 'revenue': somme})
+            out.append({'mois': mois, 'revenu': somme})
             somme = 0
     elif cible == 'animateur':
         animateurs = Possede.objects.filter(
             nomrole='Animateur')
-        tmp = []
         for anim in animateurs:
+            tmp = []
             for ano in annots:
                 mois = ano['mois']
                 for rsv in rsvs:
@@ -328,10 +329,20 @@ def stats(request, cible):
                         somme = somme + \
                             Offre.objects.get(idformule=rsv.idformule,
                                               nomtype=rsv.numespace.nomtype).prix
-                tmp.append({'mois': mois, 'revenue': somme})
+                tmp.append({'mois': mois, 'revenu': somme})
                 somme = 0
+            out.append({'nom': anim.email.nom, 'stats': tmp})
             tmp = []
-            out.append({'animateur': anim.email.nom, 'stats': tmp})
+    else:
+        types = Type.objects.all()
+        for typ in types:
+            for rsv in rsvs:
+                if rsv.numespace.nomtype == typ:
+                    somme = somme + \
+                        Offre.objects.get(idformule=rsv.idformule,
+                                          nomtype=rsv.numespace.nomtype).prix
+            out.append({'nom': typ.nomtype, 'stats': somme})
+            somme = 0
     return JsonResponse(out, safe=False)
 
 

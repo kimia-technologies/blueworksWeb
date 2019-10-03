@@ -148,10 +148,10 @@ class Image(models.Model):
 class Invite(models.Model):
     # Field name made lowercase.
     animateur = models.ForeignKey(
-        'Utilisateur', models.DO_NOTHING, db_column='ANIMATEUR', primary_key=True)
+        'Utilisateur', models.CASCADE, db_column='ANIMATEUR', related_name='animateur', primary_key=True)
     # Field name made lowercase.
     person = models.ForeignKey(
-        'Utilisateur', models.DO_NOTHING, db_column='PERSON', primary_key=True)
+        'Utilisateur', models.CASCADE, db_column='PERSON', related_name='person', primary_key=True)
     # Field name made lowercase.
     lien = models.CharField(db_column='LIEN', max_length=32)
     # Field name made lowercase.
@@ -320,6 +320,8 @@ class Reservation(models.Model):
     nbinvite = models.IntegerField(db_column='NBINVITE')
     jour = models.DateField(db_column='JOUR')  # Field name made lowercase.
     mois = models.IntegerField(db_column='MOIS')  # Field name made lowercase.
+    # Field name made lowercase.
+    annee = models.CharField(db_column='ANNEE', max_length=4)
     # Field name made lowercase.
     tranche = models.CharField(
         db_column='TRANCHE', max_length=128, blank=True, null=True)

@@ -88,14 +88,27 @@
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
       <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="container" class="stats">chart here</div>
+        <div id="container" class="stats"></div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12" id="second">
       </div>
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
       <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="animateur" class="stats">chart here</div>
+        <div id="third" class="stats"></div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
+      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
+        <div id="fourth" class="stats"></div>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
     </div>
@@ -160,15 +173,16 @@
 		============================================ -->
   <script src="{% static 'blueworks/js/main.js' %}"></script>
   <script src="{% static 'blueworks/js/highchart/highcharts.js' %}"></script>
+  <script src="{% static 'blueworks/js/highchart/highcharts-3d.js' %}"></script>
   <script type="text/javascript">
     (function ($) {
-      function plot(data, params) {
+      function plot_one(data, params) {
         Highcharts.chart(params.cible, {
           chart: {
             type: params.type
           },
           title: {
-            text: 'Revenue per month'
+            text: 'revenu per month'
           },
           legend: {
             layout: 'vertical',
@@ -198,41 +212,149 @@
           credits: {
             enabled: false
           },
-          plotOptions: {
+          plot_oneOptions: {
             areaspline: {
               fillOpacity: 0.5
             }
           },
-          series: [{
-            name: 'revenue annuel',
-            data: data
-          }]
+          series: Array(data)
         });
       }
+
+      function confront(data) {
+        Highcharts.chart('third', {
+          title: {
+            text: 'Employer stats per month'
+          },
+          yAxis: {
+            title: {
+              text: 'montant (XAF)'
+            }
+          },
+          legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+          },
+          xAxis: {
+            categories: [
+              'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+              'Nov', 'Dec'
+            ],
+          },
+          series: data,
+          plotOptions: {
+            line: {
+              dataLabels: {
+                enabled: true
+              },
+              enableMouseTracking: false
+            }
+          },
+          responsive: {
+            rules: [{
+              condition: {
+                maxWidth: 500
+              },
+              chartOptions: {
+                legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+                }
+              }
+            }]
+          }
+        });
+      }
+
+      function plot_3d(data) {
+        Highcharts.chart('fourth', {
+          chart: {
+            type: 'pie',
+            options3d: {
+              enabled: true,
+              alpha: 45,
+              beta: 0
+            }
+          },
+          title: {
+            text: 'Type revenu in one year'
+          },
+          tooltip: {
+            pointFormat: '{series.name}: <b>{point.y} (XAF)</b><br>{point.percentage:.1f}%'
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              depth: 35,
+              dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+              }
+            }
+          },
+          series: data
+        });
+      }
+
       $(document).load(
         $.getJSON('/blueworks/stats/general/', function (data) {
           var revenusData = Array.from({
             length: 12
           }, () => 0);
           data.map(rev => {
-            revenusData[rev.mois - 1] = rev.revenue;
+            revenusData[rev.mois - 1] = rev.revenu;
           });
-          plot(revenusData, {
+          plot_one({
+            name: 'revenu annuel',
+            data: revenusData
+          }, {
             cible: 'container',
             type: 'areaspline'
           });
         }), $.getJSON('/blueworks/stats/animateur/', function (data) {
-          console.log(data);
-          /*var revenusData = Array.from({
-            length: 12
-          }, () => 0);
-          data.map(rev => {
-            revenusData[rev.mois - 1] = rev.revenue;
+          data.map(anim => {
+            $('#second').append($('<div class="stats"></div>').attr('id', anim.nom));
+            var revenusData = Array.from({
+              length: 12
+            }, () => 0);
+            anim.stats.map(rev => {
+              revenusData[rev.mois - 1] = rev.revenu;
+            });
+            plot_one({
+              name: 'revenu ' + anim.nom,
+              data: revenusData
+            }, {
+              cible: anim.nom,
+              type: 'column'
+            });
           });
-          plot(revenusData, {
-            cible: 'animateur',
-            type: 'areaspline'
-          });*/
+          var to_plot = [];
+          data.map(anim => {
+            var revenusData = Array.from({
+              length: 12
+            }, () => 0);
+            anim.stats.map(rev => {
+              revenusData[rev.mois - 1] = rev.revenu;
+            });
+            to_plot.push({
+              'name': anim.nom,
+              'data': revenusData
+            });
+          });
+          confront(to_plot);
+        }), $.getJSON('/blueworks/stats/type/', function (data) {
+          var revenusData = [];
+          data.map(rev => {
+            revenusData.push([rev.nom, rev.stats]);
+          });
+          plot_3d([{
+            type: 'pie',
+            name: 'revenu',
+            data: revenusData
+          }]);
         })
       );
     })(jQuery);
