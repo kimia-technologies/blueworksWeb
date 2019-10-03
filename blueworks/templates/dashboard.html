@@ -1,407 +1,617 @@
 {% load static %}
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Dashboard</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- favicon
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Statistiques</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
 		============================================ -->
-  <link rel="shortcut icon" type="image/x-icon" href="{% static 'blueworks/img/logo/blueworks.png' %}">
-  <!-- Google Fonts
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'blueworks/img/logo/blueworks.png' %}">
+    <!-- Google Fonts
 		============================================ -->
-  <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
-  <!-- Bootstrap CSS
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+    <!-- Bootstrap CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/bootstrap.min.css' %}">
-  <!-- Bootstrap CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/bootstrap.min.css' %}">
+    <!-- Bootstrap CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/font-awesome.min.css' %}">
-  <!-- owl.carousel CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/font-awesome.min.css' %}">
+    <!-- owl.carousel CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/owl.carousel.css' %}">
-  <link rel="stylesheet" href="{% static 'blueworks/css/owl.theme.css' %}">
-  <link rel="stylesheet" href="{% static 'blueworks/css/owl.transitions.css' %}">
-  <!-- animate CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/owl.transitions.css' %}">
+    <!-- animate CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/animate.css' %}">
-  <!-- normalize CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/animate.css' %}">
+    <!-- normalize CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/normalize.css' %}">
-  <!-- main CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/normalize.css' %}">
+    <!-- meanmenu icon CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/main.css' %}">
-  <!-- morrisjs CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/meanmenu.min.css' %}">
+    <!-- main CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/morrisjs/morris.css' %}">
-  <!-- mCustomScrollbar CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/main.css' %}">
+    <!-- morrisjs CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/scrollbar/jquery.mCustomScrollbar.min.css' %}">
-  <!-- metisMenu CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/morrisjs/morris.css' %}">
+    <!-- mCustomScrollbar CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu.min.css' %}">
-  <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu-vertical.css' %}">
-  <!-- calendar CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/scrollbar/jquery.mCustomScrollbar.min.css' %}">
+    <!-- metisMenu CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/calendar/fullcalendar.min.css' %}">
-  <link rel="stylesheet" href="{% static 'blueworks/css/calendar/fullcalendar.print.min.css' %}">
-  <!-- style CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/metisMenu/metisMenu-vertical.css' %}">
+    <!-- calendar CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/style.css' %}">
-  <!-- responsive CSS
+    <link rel="stylesheet" href="{% static 'blueworks/css/calendar/fullcalendar.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/calendar/fullcalendar.print.min.css' %}">
+    <!-- x-editor CSS
 		============================================ -->
-  <link rel="stylesheet" href="{% static 'blueworks/css/responsive.css' %}">
-  <!-- jquery
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/select2.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/bootstrap-editable.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/editor/x-editor-style.css' %}">
+    <!-- normalize CSS
 		============================================ -->
-  <script src="{% static 'blueworks/js/vendor/jquery-1.11.3.min.js' %}"></script>
-  <style type="text/css">
-    .stats {
-      max-width: 800px;
-      min-width: 310px;
-      max-height: 800px;
-      margin: 0 auto
-    }
-  </style>
-  <!-- modernizr JS
+    <link rel="stylesheet" href="{% static 'blueworks/css/data-table/bootstrap-table.css' %}">
+    <link rel="stylesheet" href="{% static 'blueworks/css/data-table/bootstrap-editable.css' %}">
+    <!-- style CSS
 		============================================ -->
-  <script src="{% static 'blueworks/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'blueworks/style.css' %}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/responsive.css' %}">
+    <!-- highcharts CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'blueworks/css/highcharts/css.css' %}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!-- jquery
+		============================================ -->
+    <script src="{% static 'blueworks/js/vendor/jquery-1.11.3.min.js' %}"></script>
+    <style type="text/css">
+        .stats {
+            min-width: 800px;
+            margin: 0
+        }
+    </style>
 </head>
 
 <body>
-  <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-  <div class="color-line"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="back-link back-backend">
-          <button id='dash' class="btn btn-primary">Back to Home</button>
+    <!-- left menu -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header" style="margin-top: 5px">
+                <a href="index.html"><img class="main-logo" src="{% static 'blueworks/img/logo/blueworks.png' %}"
+                        height="100" width="100" alt="" /></a>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        <li onclick="window.location.reload(true)" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                      font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Tableau de bord</span>
+                        </li>
+                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                      font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Reservations</span>
+                        </li>
+                        <li onclick="window.location='/blueworks/coworker.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;" class="test">
+                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Coworkers</span>
+                        </li>
+                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Animateurs</span>
+                        </li>
+                        <li onclick="window.location='./mailbox.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Courrier</span>
+                        </li>
+                        <li onclick="window.location='/blueworks/sites.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Gerer site</span>
+                        </li>
+                        <li onclick="window.location='./404.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Notifications</span>
+                        </li>
+                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                            font-size: 17px; padding: 14px; cursor: pointer;">
+                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                            <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;Liens</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href="index.html"><img class="main-logo"
+                                src="{% static 'blueworks/img/logo/blueworks.png' %}" height="50" width="50"
+                                alt="" /></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid" style="background-color: rgb(0, 111, 186)">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse"
+                                                class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="fa fa-bars"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                            <ul class="nav navbar-nav mai-top-nav">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item dropdown">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-envelope-o adminpro-chat-pro"
+                                                            aria-hidden="true"></i><span
+                                                            class="indicator-ms"></span></a>
+                                                </li>
+                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle"><i
+                                                            class="fa fa-bell-o" aria-hidden="true"></i><span
+                                                            class="indicator-nt"></span></a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button"
+                                                        aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <i class="fa fa-user adminpro-user-rounded header-riht-inf"
+                                                            aria-hidden="true"></i>
+                                                        <span class="admin-name">Steph Walker</span>
+                                                        <i
+                                                            class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
+                                                    </a>
+                                                    <ul role="menu" style="background-color:  rgb(0, 111, 186)"
+                                                        class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href="#"><span class="fa fa-user author-log-ic"></span>My
+                                                                Profile</a>
+                                                        </li>
+                                                        <li><a href="index.html"><span
+                                                                    class="fa fa-lock author-log-ic"></span>Log Out</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="metismenu" id="menu1">
+                                        <li onclick="window.location='./Statistique.html'" style="background-color: rgb(0, 111, 186); color: whitesmoke;
+                                        font-size: 17px; padding: 14px; font-weight: bold; cursor: pointer;">
+                                            <i class="fa fa-dashboard icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Tableau de bord</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                        font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-calendar icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Reservations</span>
+                                        </li>
+                                        <li onclick="window.location='/blueworks/coworker.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-user icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Coworker</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Animateurs</span>
+                                        </li>
+                                        <li onclick="window.location='./mailbox.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Courrier</span>
+                                        </li>
+                                        <li onclick="window.location='/blueworks/sites.html'" style="color: grey; font-weight: 500;
+                                            font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-envelope icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Gerer site</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bell icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Notifications</span>
+                                        </li>
+                                        <li onclick="window.location='./Accueil.html'" style="color: grey; font-weight: 500;
+                                                font-size: 17px; padding: 14px; cursor: pointer;">
+                                            <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
+                                            <span class="mini-click-non" style="position: absolute; top: 10px">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;Liens</span>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Charts -->
+        <div class="data-table-area mg-tb-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline13-list">
+                            <div id="container" class="stats"
+                                style="background-image: linear-gradient(white, whitesmoke);">
+                            </div>
+                            <div id="thirth" class="stats"
+                                style="background-image: linear-gradient(white, whitesmoke);">
+                            </div>
+                            <div id="fourth" class="stats"
+                                style="background-image: linear-gradient(silver, whitesmoke);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area" style="background-color: rgb(0, 111, 186); height: 50px; margin-left: -4px">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right" style="position: relative; top: -14px">
+                            <p>Copyright &copy; 2019 <a href="https://colorlib.com/wp/templates/">#BlueWorkS</a> All
+                                rights reserved.</p>
+                            <p>By Kimia technologies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="container" class="stats"></div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12" id="second">
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="third" class="stats"></div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-      <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="fourth" class="stats"></div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center login-footer">
-        <p>Copyright © 2019 <a href="https://colorlib.com/wp/templates/">BlueWorkS</a> All rights reserved.
-          <br>By Kimia technologies</p>
-      </div>
-    </div>
-  </div>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/bootstrap.min.js' %}"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/wow.min.js' %}"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery-price-slider.js' %}"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.meanmenu.js' %}"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/owl.carousel.min.js' %}"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.sticky.js' %}"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/jquery.scrollUp.min.js' %}"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/scrollbar/mCustomScrollbar-active.js' %}"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/metisMenu/metisMenu.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/metisMenu/metisMenu-active.js' %}"></script>
+    <!-- data table JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/tableExport.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/data-table-active.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-resizable.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/colResizable-1.5.source.js' %}"></script>
+    <script src="{% static 'blueworks/js/data-table/bootstrap-table-export.js' %}"></script>
+    <!--  editable JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/editable/jquery.mockjax.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/mock-active.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/select2.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/moment.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'blueworks/js/editable/xediable-active.js' %}"></script>
+    <!-- Chart JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/chart/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'blueworks/js/peity/peity-active.js' %}"></script>
+    <!-- tab JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/tab.js' %}"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/plugins.js' %}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{% static 'blueworks/js/main.js' %}"></script>
+    <script src="{% static 'blueworks/js/highchart/highcharts.js' %}"></script>
+    <script src="{% static 'blueworks/js/highchart/data.js' %}"></script>
+    <script src="{% static 'blueworks/js/highchart/drilldown.js' %}"></script>
+    <script src="{% static 'blueworks/js/highchart/exporting.js' %}"></script>
+    <script src="{% static 'blueworks/js/highchart/export-data.js' %}"></script>
+    <script type="text/javascript">
+        (function ($) {
+            function plot_one(data, params) {
+                Highcharts.chart(params.cible, {
+                    chart: {
+                        type: params.type
+                    },
+                    title: {
+                        text: 'income per month'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 150,
+                        y: 100,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
+                    },
+                    xAxis: {
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+                            'Nov', 'Dec'
+                        ],
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'montant (XAF)'
+                        }
+                    },
+                    tooltip: {
+                        shared: true,
+                        valueSuffix: 'XAF'
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plot_oneOptions: {
+                        series: {
+                            fillOpacity: 0
+                            /*linearGradient: [0, 0, 0, 300],
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0)
+                                    .get('rgba')
+                                ]
+                            ]*/
+                        }
+                    },
+                    series: Array(data)
+                });
+            }
 
-  <!-- bootstrap JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/bootstrap.min.js' %}"></script>
-  <!-- wow JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/wow.min.js' %}"></script>
-  <!-- price-slider JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/jquery-price-slider.js' %}"></script>
-  <!-- meanmenu JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/jquery.meanmenu.js' %}"></script>
-  <!-- owl.carousel JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/owl.carousel.min.js' %}"></script>
-  <!-- sticky JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/jquery.sticky.js' %}"></script>
-  <!-- scrollUp JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/jquery.scrollUp.min.js' %}"></script>
-  <!-- mCustomScrollbar JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/scrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/scrollbar/mCustomScrollbar-active.js' %}"></script>
-  <!-- counterup JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/counterup/jquery.counterup.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/counterup/waypoints.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/counterup/counterup-active.js' %}"></script>
-  <!-- metisMenu JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/metisMenu/metisMenu.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/metisMenu/metisMenu-active.js' %}"></script>
-  <!-- morrisjs JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/sparkline/jquery.sparkline.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/sparkline/jquery.charts-sparkline.js' %}"></script>
-  <!-- calendar JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/calendar/moment.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/calendar/fullcalendar.min.js' %}"></script>
-  <script src="{% static 'blueworks/js/calendar/fullcalendar-active.js' %}"></script>
-  <!-- tab JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/tab.js' %}"></script>
-  <!-- plugins JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/plugins.js' %}"></script>
-  <!-- main JS
-		============================================ -->
-  <script src="{% static 'blueworks/js/main.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/highcharts.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/data.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/drilldown.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/exporting.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/export-data.js' %}"></script>
-  <script type="text/javascript">
-    (function ($) {
-      function plot_one(data, params) {
-        Highcharts.chart(params.cible, {
-          chart: {
-            type: params.type
-          },
-          title: {
-            text: 'revenu per month'
-          },
-          legend: {
-            layout: 'vertical',
-            align: 'left',
-            verticalAlign: 'top',
-            x: 150,
-            y: 100,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-          },
-          xAxis: {
-            categories: [
-              'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
-              'Nov', 'Dec'
-            ],
-          },
-          yAxis: {
-            title: {
-              text: 'montant (XAF)'
-            }
-          },
-          tooltip: {
-            shared: true,
-            valueSuffix: 'XAF'
-          },
-          credits: {
-            enabled: false
-          },
-          plot_oneOptions: {
-            areaspline: {
-              fillOpacity: 0.5
-            }
-          },
-          series: Array(data)
-        });
-      }
-
-      function confront(data) {
-        Highcharts.chart('third', {
-          title: {
-            text: 'Employer stats per month'
-          },
-          yAxis: {
-            title: {
-              text: 'montant (XAF)'
-            }
-          },
-          legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-          },
-          xAxis: {
-            categories: [
-              'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
-              'Nov', 'Dec'
-            ],
-          },
-          series: data,
-          credits: {
-            enabled: false
-          },
-          plotOptions: {
-            line: {
-              dataLabels: {
-                enabled: true
-              },
-              enableMouseTracking: false
-            }
-          },
-          responsive: {
-            rules: [{
-              condition: {
-                maxWidth: 500
-              },
-              chartOptions: {
-                legend: {
-                  layout: 'horizontal',
-                  align: 'center',
-                  verticalAlign: 'bottom'
-                }
-              }
-            }]
-          }
-        });
-      }
-
-      function plot_type(data, drilldownData) {
-        Highcharts.chart('fourth', {
-          chart: {
-            type: 'column'
-          },
-          title: {
-            text: 'Revenu per type, 2019'
-          },
-          subtitle: {
-            text: 'Click the columns to view detailt. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
-          },
-          xAxis: {
-            type: 'category'
-          },
-          yAxis: {
-            title: {
-              text: 'montan (XAF)'
+            function confront(data) {
+                Highcharts.chart('thirth', {
+                    title: {
+                        text: 'challenge between employees'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'montant (XAF)'
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle'
+                    },
+                    xAxis: {
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+                            'Nov', 'Dec'
+                        ],
+                    },
+                    series: data,
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: false
+                        }
+                    },
+                    responsive: {
+                        rules: [{
+                            condition: {
+                                maxWidth: 500
+                            },
+                            chartOptions: {
+                                legend: {
+                                    layout: 'horizontal',
+                                    align: 'center',
+                                    verticalAlign: 'bottom'
+                                }
+                            }
+                        }]
+                    }
+                });
             }
 
-          },
-          legend: {
-            enabled: false
-          },
-          credits: {
-            enabled: false
-          },
-          plotOptions: {
-            series: {
-              borderWidth: 0,
-              dataLabels: {
-                enabled: true,
-                format: '{point.y} (XAF)'
-              }
-            }
-          },
-          tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} (XAF)</b><br/>'
-          },
-          series: [{
-            name: "Type",
-            colorByPoint: true,
-            data: data
-          }],
-          drilldown: {
-            series: drilldownData
-          }
-        });
-      }
+            function plot_type(data, drilldownData) {
+                Highcharts.chart('fourth', {
+                    chart: {
+                        type: 'column'
+                    },
+                    title: {
+                        text: 'income per space type, 2019'
+                    },
+                    subtitle: {
+                        text: 'Click the columns to view detail'
+                    },
+                    xAxis: {
+                        type: 'category'
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'montan (XAF)'
+                        }
 
-      $(document).load(
-        $.getJSON('/blueworks/stats/2019/general/', function (data) {
-          var revenusData = Array.from({
-            length: 12
-          }, () => 0);
-          data.map(rev => {
-            revenusData[rev.mois - 1] = rev.revenu;
-          });
-          plot_one({
-            name: 'revenu annuel',
-            data: revenusData
-          }, {
-            cible: 'container',
-            type: 'areaspline'
-          });
-        }), $.getJSON('/blueworks/stats/2019/animateur/', function (data) {
-          data.map(anim => {
-            $('#second').append($('<div class="stats"></div>').attr('id', anim.nom));
-            var revenusData = Array.from({
-              length: 12
-            }, () => 0);
-            anim.stats.map(rev => {
-              revenusData[rev.mois - 1] = rev.revenu;
-            });
-            plot_one({
-              name: 'revenu ' + anim.nom,
-              data: revenusData
-            }, {
-              cible: anim.nom,
-              type: 'column'
-            });
-          });
-          var to_plot = [];
-          data.map(anim => {
-            var revenusData = Array.from({
-              length: 12
-            }, () => 0);
-            anim.stats.map(rev => {
-              revenusData[rev.mois - 1] = rev.revenu;
-            });
-            to_plot.push({
-              'name': anim.nom,
-              'data': revenusData
-            });
-          });
-          confront(to_plot);
-        }), $.getJSON('/blueworks/stats/2019/type/', function (data) {
-          var to_plot = [];
-          var drilldownData = [];
-          var revenusData;
-          var months = [
-            'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
-            'Nov', 'Dec'
-          ];
-          data.map(typ => {
-            revenusData = Array.from({
-              length: 12
-            }, (x, i) => [months[i], 0]);
-            to_plot.push({
-              'name': typ.nom,
-              'y': typ.somme,
-              'drilldown': typ.nom
-            });
-            typ.stats.map(rev => {
-              revenusData[rev.mois - 1] = [months[rev.mois - 1], rev.revenu];
-            });
-            drilldownData.push({
-              name: typ.nom,
-              id: typ.nom,
-              data: revenusData
-            });
-          });
-          plot_type(to_plot, drilldownData);
-        })
-      );
-    })(jQuery);
-  </script>
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        series: {
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.y} (XAF)'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} (XAF)</b><br/>'
+                    },
+                    series: [{
+                        name: "Type",
+                        colorByPoint: true,
+                        data: data
+                    }],
+                    drilldown: {
+                        series: drilldownData
+                    }
+                });
+            }
+
+            $(document).load(
+                $.getJSON('/blueworks/stats/2019/general/', function (data) {
+                    var revenusData = Array.from({
+                        length: 12
+                    }, () => 0);
+                    data.map(rev => {
+                        revenusData[rev.mois - 1] = rev.revenu;
+                    });
+                    plot_one({
+                        name: 'revenu annuel',
+                        data: revenusData
+                    }, {
+                        cible: 'container',
+                        type: 'areaspline'
+                    });
+                }), $.getJSON('/blueworks/stats/2019/animateur/', function (data) {
+                    var to_plot = [];
+                    data.map(anim => {
+                        var revenusData = Array.from({
+                            length: 12
+                        }, () => 0);
+                        anim.stats.map(rev => {
+                            revenusData[rev.mois - 1] = rev.revenu;
+                        });
+                        to_plot.push({
+                            'name': anim.nom,
+                            'data': revenusData
+                        });
+                    });
+                    confront(to_plot);
+                }), $.getJSON('/blueworks/stats/2019/type/', function (data) {
+                    var to_plot = [];
+                    var drilldownData = [];
+                    var revenusData;
+                    var months = [
+                        'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+                        'Nov', 'Dec'
+                    ];
+                    data.map(typ => {
+                        revenusData = Array.from({
+                            length: 12
+                        }, (x, i) => [months[i], 0]);
+                        to_plot.push({
+                            'name': typ.nom,
+                            'y': typ.somme,
+                            'drilldown': typ.nom
+                        });
+                        typ.stats.map(rev => {
+                            revenusData[rev.mois - 1] = [months[rev.mois - 1], rev.revenu];
+                        });
+                        drilldownData.push({
+                            name: typ.nom,
+                            id: typ.nom,
+                            data: revenusData
+                        });
+                    });
+                    plot_type(to_plot, drilldownData);
+                })
+            );
+        })(jQuery);
+    </script>
 </body>
 
 </html>
