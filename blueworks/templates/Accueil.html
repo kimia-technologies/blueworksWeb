@@ -363,7 +363,7 @@
                                                         aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <i class="fa fa-user adminpro-user-rounded header-riht-inf"
                                                             aria-hidden="true"></i>
-                                                        <span class="admin-name" id="nom"></span>
+                                                        <span class="admin-name" id="username"></span>
                                                         <i
                                                             class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
                                                     </a>
@@ -491,7 +491,7 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="fa fa-envelope"
                                                                     aria-hidden="true"></i></span>
-                                                            <input type="email"
+                                                            <input type="email" id="email"
                                                                 class="form-control pro-edt-select form-control-primary input-lg"
                                                                 placeholder="example@gmail.com">
                                                         </div>
@@ -515,7 +515,7 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="fa fa-calendar"
                                                                     aria-hidden="true"></i></span>
-                                                            <input type="date" class="form-control input-lg"
+                                                            <input type="date" id="jour" class="form-control input-lg"
                                                                 min="2019-09-30">
                                                         </div>
                                                         <label for="">Tranche horaire</label>
@@ -535,8 +535,8 @@
                                                                 class="form-control pro-edt-select form-control-primary input-lg">
                                                             </select>
                                                         </div>
-                                                        <button type="button" class="btn btn-custon-four btn-primary"
-                                                            onclick="window.location='./Accueil.html'"
+                                                        <button id="bookBtn" type="button"
+                                                            class="btn btn-custon-four btn-primary" data-dismiss="modal"
                                                             style="background-color: rgb(0, 111, 186); width: 100%;">
                                                             <i class="fa fa-check adminpro-informatio"
                                                                 aria-hidden="true"></i>
@@ -683,7 +683,7 @@
     <script src="{% static 'blueworks/js/main.js' %}"></script>
     <script lang="javascript">
         (function ($) {
-            $(document).load(console.log(JSON.stringify('{{request.session}}')));
+            $(document).load($('#username').html(localStorage.getItem('pseudo')));
             $.getJSON('/blueworks/type', function (data) {
                 $('.type').remove();
                 data.map(type => {
@@ -755,6 +755,36 @@
                         id: $('#delete_id').val(),
                     },
                     dataType: 'JSON',
+                    async: true
+                });
+            });
+            $('#bookBtn').on('click', function () {
+                $.ajax({
+                    url: 'http://127.0.0.1:1111/api.blueworks/reservation',
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader('authorization', 'Bearer ' + localStorage.getItem(
+                            'token'));
+                        xhr.setRequestHeader('ressource', 'reservation');
+                        xhr.setRequestHeader('b-action', 'CREATE');
+                        return true;
+                    },
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        a: true,
+                        e: $('#email').val(),
+                        t: $('#type').val(),
+                        f: $('#formule').val(),
+                        i: $('#coworker').val(),
+                        j: $('#jour').val(),
+                        h: $('#tranche').val()
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (xhr, err) {
+                        console.log(xhr);
+                    },
                     async: true
                 });
             });

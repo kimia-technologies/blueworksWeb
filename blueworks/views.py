@@ -21,31 +21,10 @@ def home(request):
     return render(request, template_name='index.html')
 
 
-def login(request):
-    if request.method == 'POST':
-        crds = json.loads(json.dumps(request.POST))
-        m = hashlib.sha256()
-        m.update(bytes(crds['p'], 'utf-8'))
-        try:
-            user = Utilisateur.objects.get(
-                Q(email=crds['id'], password=m.hexdigest()) |
-                Q(phone=crds['id'], password=m.hexdigest()) |
-                Q(pseudo=crds['id'], password=m.hexdigest()))
-            isEmploye = Employe.objects.get(email=user, nomsite=crds['s'])
-            if isEmploye is not None:
-                request.session['e'] = user.email
-                return redirect('home')
-            else:
-                raise(BaseException)
-        except ObjectDoesNotExist:
-            return render(request, 'index.html', {'msg': 'identifants incorrects', 'level': 0})
-        except BaseException:
-            return render(request, 'index.html', {'msg': 'access non authorisé', 'level': 1})
-    else:
-        return render(request, 'index.html')
-
-
 def logout(request):
+    toks = Token.objects.filter(email=request.GET['e'])
+    for tok in toks:
+        tok.delete()
     return render(request, 'index.html')
 
 

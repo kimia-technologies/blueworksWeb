@@ -362,7 +362,7 @@
                                                         aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <i class="fa fa-user adminpro-user-rounded header-riht-inf"
                                                             aria-hidden="true"></i>
-                                                        <span class="admin-name">Steph Walker</span>
+                                                        <span class="admin-name" id="username"></span>
                                                         <i
                                                             class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
                                                     </a>
@@ -961,6 +961,7 @@
     <script src="{% static 'blueworks/js/main.js' %}"></script>
     <script lang="javascript">
         (function ($) {
+            $(document).load($('#username').html(localStorage.getItem('pseudo')));
             $('#btnUpdateType').on('click', function () {
                 $.ajax({
                     url: '/blueworks/type',

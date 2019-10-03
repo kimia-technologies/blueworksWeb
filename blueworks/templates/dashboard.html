@@ -204,7 +204,7 @@
                                                         aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <i class="fa fa-user adminpro-user-rounded header-riht-inf"
                                                             aria-hidden="true"></i>
-                                                        <span class="admin-name">Steph Walker</span>
+                                                        <span class="admin-name" id="username"></span>
                                                         <i
                                                             class="fa fa-angle-down adminpro-icon adminpro-down-arrow"></i>
                                                     </a>
@@ -552,6 +552,7 @@
             }
 
             $(document).load(
+                $(document).load($('#username').html(localStorage.getItem('pseudo'))),
                 $.getJSON('/blueworks/stats/2019/general/', function (data) {
                     var revenusData = Array.from({
                         length: 12
