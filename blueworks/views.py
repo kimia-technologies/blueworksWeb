@@ -305,8 +305,7 @@ def stats(request, annee, cible):
     rsvs = Reservation.objects.filter(Q(etat=1) | Q(
         etat=-1)).filter(annee=annee)
     annots = rsvs.values('mois', 'annee').annotate(
-        c=Count('mois'), a=Count('annee'))
-    print(annots)
+        m=Count('mois'), a=Count('annee'))
     out = []
     somme = 0
     if cible == 'general':
@@ -339,14 +338,22 @@ def stats(request, annee, cible):
             tmp = []
     else:
         types = Type.objects.all()
+        rev = 0
         for typ in types:
-            for rsv in rsvs:
-                if rsv.numespace.nomtype == typ:
-                    somme = somme + \
-                        Offre.objects.get(idformule=rsv.idformule,
-                                          nomtype=rsv.numespace.nomtype).prix
-            out.append({'nom': typ.nomtype, 'stats': somme})
-            somme = 0
+            tmp = []
+            for ano in annots:
+                mois = ano['mois']
+                for rsv in rsvs:
+                    if rsv.numespace.nomtype == typ and rsv.mois == mois:
+                        somme = somme + \
+                            Offre.objects.get(idformule=rsv.idformule,
+                                              nomtype=rsv.numespace.nomtype).prix
+                        rev = rev + somme
+                tmp.append({'mois': mois, 'revenu': somme})
+                somme = 0
+            out.append({'nom': typ.nomtype, 'somme': rev, 'stats': tmp})
+            rev = 0
+            tmp = []
     return JsonResponse(out, safe=False)
 
 

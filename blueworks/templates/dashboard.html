@@ -60,6 +60,7 @@
   <style type="text/css">
     .stats {
       max-width: 800px;
+      min-width: 310px;
       max-height: 800px;
       margin: 0 auto
     }
@@ -173,7 +174,8 @@
 		============================================ -->
   <script src="{% static 'blueworks/js/main.js' %}"></script>
   <script src="{% static 'blueworks/js/highchart/highcharts.js' %}"></script>
-  <script src="{% static 'blueworks/js/highchart/highcharts-3d.js' %}"></script>
+  <script src="{% static 'blueworks/js/highchart/data.js' %}"></script>
+  <script src="{% static 'blueworks/js/highchart/drilldown.js' %}"></script>
   <script src="{% static 'blueworks/js/highchart/exporting.js' %}"></script>
   <script src="{% static 'blueworks/js/highchart/export-data.js' %}"></script>
   <script type="text/javascript">
@@ -245,6 +247,9 @@
             ],
           },
           series: data,
+          credits: {
+            enabled: false
+          },
           plotOptions: {
             line: {
               dataLabels: {
@@ -270,34 +275,53 @@
         });
       }
 
-      function plot_3d(data) {
+      function plot_type(data, drilldownData) {
         Highcharts.chart('fourth', {
           chart: {
-            type: 'pie',
-            options3d: {
-              enabled: true,
-              alpha: 45,
-              beta: 0
-            }
+            type: 'column'
           },
           title: {
-            text: 'Type revenu in one year'
+            text: 'Revenu per type, 2019'
           },
-          tooltip: {
-            pointFormat: '{series.name}: <b>{point.y} (XAF)</b><br>{point.percentage:.1f}%'
+          subtitle: {
+            text: 'Click the columns to view detailt. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>'
+          },
+          xAxis: {
+            type: 'category'
+          },
+          yAxis: {
+            title: {
+              text: 'montan (XAF)'
+            }
+
+          },
+          legend: {
+            enabled: false
+          },
+          credits: {
+            enabled: false
           },
           plotOptions: {
-            pie: {
-              allowPointSelect: true,
-              cursor: 'pointer',
-              depth: 35,
+            series: {
+              borderWidth: 0,
               dataLabels: {
                 enabled: true,
-                format: '{point.name}'
+                format: '{point.y} (XAF)'
               }
             }
           },
-          series: data
+          tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y} (XAF)</b><br/>'
+          },
+          series: [{
+            name: "Type",
+            colorByPoint: true,
+            data: data
+          }],
+          drilldown: {
+            series: drilldownData
+          }
         });
       }
 
@@ -348,15 +372,32 @@
           });
           confront(to_plot);
         }), $.getJSON('/blueworks/stats/2019/type/', function (data) {
-          var revenusData = [];
-          data.map(rev => {
-            revenusData.push([rev.nom, rev.stats]);
+          var to_plot = [];
+          var drilldownData = [];
+          var revenusData;
+          var months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
+            'Nov', 'Dec'
+          ];
+          data.map(typ => {
+            revenusData = Array.from({
+              length: 12
+            }, (x, i) => [months[i], 0]);
+            to_plot.push({
+              'name': typ.nom,
+              'y': typ.somme,
+              'drilldown': typ.nom
+            });
+            typ.stats.map(rev => {
+              revenusData[rev.mois - 1] = [months[rev.mois - 1], rev.revenu];
+            });
+            drilldownData.push({
+              name: typ.nom,
+              id: typ.nom,
+              data: revenusData
+            });
           });
-          plot_3d([{
-            type: 'pie',
-            name: 'revenu',
-            data: revenusData
-          }]);
+          plot_type(to_plot, drilldownData);
         })
       );
     })(jQuery);
