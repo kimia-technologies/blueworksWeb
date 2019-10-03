@@ -302,7 +302,7 @@
       }
 
       $(document).load(
-        $.getJSON('/blueworks/stats/general/', function (data) {
+        $.getJSON('/blueworks/stats/2019/general/', function (data) {
           var revenusData = Array.from({
             length: 12
           }, () => 0);
@@ -316,7 +316,7 @@
             cible: 'container',
             type: 'areaspline'
           });
-        }), $.getJSON('/blueworks/stats/animateur/', function (data) {
+        }), $.getJSON('/blueworks/stats/2019/animateur/', function (data) {
           data.map(anim => {
             $('#second').append($('<div class="stats"></div>').attr('id', anim.nom));
             var revenusData = Array.from({
@@ -347,7 +347,7 @@
             });
           });
           confront(to_plot);
-        }), $.getJSON('/blueworks/stats/type/', function (data) {
+        }), $.getJSON('/blueworks/stats/2019/type/', function (data) {
           var revenusData = [];
           data.map(rev => {
             revenusData.push([rev.nom, rev.stats]);

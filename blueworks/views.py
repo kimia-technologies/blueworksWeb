@@ -76,9 +76,12 @@ def reservation(request):
         pass
 
 
-def utilisateur(request):
+def utilisateur(request, status):
     if request.method == 'GET':
-        users = Utilisateur.objects.filter().order_by('nom')
+        if request.GET['status'] == 0:
+            users = Utilisateur.objects.filter().order_by('nom')
+        else:
+            users = Utilisateur.objects.filter().order_by('nom')
         out = []
         button = '<button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>'
         for user in users:
@@ -298,11 +301,12 @@ def desc(request):
     return JsonResponse({'user': user.nom, 'email': user.email})
 
 
-def stats(request, cible):
+def stats(request, annee, cible):
     rsvs = Reservation.objects.filter(Q(etat=1) | Q(
-        etat=-1))
+        etat=-1)).filter(annee=annee)
     annots = rsvs.values('mois', 'annee').annotate(
         c=Count('mois'), a=Count('annee'))
+    print(annots)
     out = []
     somme = 0
     if cible == 'general':

@@ -18,6 +18,6 @@ urlpatterns = [
     path('formule', views.formule, name='formule'),
     path('values', views.values),
     path('plan', views.plan),
-    path('stats/<str:cible>/', views.stats),
+    path('stats/<str:annee>/<str:cible>/', views.stats),
 ]
 handler404 = 'blueworks.views.handler404'
