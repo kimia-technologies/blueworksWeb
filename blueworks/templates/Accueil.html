@@ -725,7 +725,7 @@
                 $('.tranche').remove();
                 const tab = $('#formule .select').attr('periode') == 0 ? [
                         $('<option class="tranche">08h - 14h</option>').val('08h-14h'),
-                        $('<option class="tranche">08h - 14h</option>').val('08h-14h')
+                        $('<option class="tranche">14h - 20h</option>').val('14h-20h')
                     ] : Array
                     .from({
                         length: 13
@@ -759,17 +759,43 @@
                 });
             });
             $('#bookBtn').on('click', function () {
+                const config = {
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Authorization': 'Bearer ' + localStorage.getItem(
+                            'token'),
+                        'ressource': 'reservation',
+                        'b-action': 'CREATE'
+                    }
+                };
+                const data = {
+                    a: true,
+                    e: $('#email').val(),
+                    t: $('#type').val(),
+                    f: $('#formule').val(),
+                    i: $('#coworker').val(),
+                    j: $('#jour').val(),
+                    h: $('#tranche').val()
+                };
                 $.ajax({
                     url: 'http://127.0.0.1:1111/api.blueworks/reservation',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    contentType: 'application/x-www-form-urlencoded',
                     beforeSend: function (xhr, settings) {
-                        xhr.setRequestHeader('authorization', 'Bearer ' + localStorage.getItem(
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
                             'token'));
                         xhr.setRequestHeader('ressource', 'reservation');
                         xhr.setRequestHeader('b-action', 'CREATE');
-                        return true;
                     },
-                    method: 'POST',
-                    dataType: 'JSON',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem(
+                            'token'),
+                        'ressource': 'reservation',
+                        'b-action': 'CREATE'
+                    },
+                    processData: false,
                     data: {
                         a: true,
                         e: $('#email').val(),

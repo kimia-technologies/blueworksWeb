@@ -85,7 +85,7 @@
         $('#login').on('click', function () {
           $.ajax({
             url: 'http://127.0.0.1:1111/api.blueworks/login',
-            method: 'POST',
+            type: 'POST',
             dataType: 'JSON',
             data: {
               id: $('#crd').val(),
