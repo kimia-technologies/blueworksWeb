@@ -759,25 +759,6 @@
                 });
             });
             $('#bookBtn').on('click', function () {
-                const config = {
-                    headers: {
-                        'Content-type': 'application/json',
-                        'Access-Control-Allow-Origin': '*',
-                        'Authorization': 'Bearer ' + localStorage.getItem(
-                            'token'),
-                        'ressource': 'reservation',
-                        'b-action': 'CREATE'
-                    }
-                };
-                const data = {
-                    a: true,
-                    e: $('#email').val(),
-                    t: $('#type').val(),
-                    f: $('#formule').val(),
-                    i: $('#coworker').val(),
-                    j: $('#jour').val(),
-                    h: $('#tranche').val()
-                };
                 $.ajax({
                     url: 'http://127.0.0.1:1111/api.blueworks/reservation',
                     type: 'POST',
@@ -795,7 +776,6 @@
                         'ressource': 'reservation',
                         'b-action': 'CREATE'
                     },
-                    processData: false,
                     data: {
                         a: true,
                         e: $('#email').val(),
@@ -804,12 +784,6 @@
                         i: $('#coworker').val(),
                         j: $('#jour').val(),
                         h: $('#tranche').val()
-                    },
-                    success: function (data) {
-                        console.log(data);
-                    },
-                    error: function (xhr, err) {
-                        console.log(xhr);
                     },
                     async: true
                 });

@@ -46,7 +46,6 @@ def reservation(request):
         return JsonResponse(out, safe=False)
     elif request.method == 'DELETE':
         id = QueryDict(request.body)
-        print(id['id'])
         rsv = Reservation.objects.get(idreservation=id['id'])
         rsv.etat = -1
         rsv.save()
