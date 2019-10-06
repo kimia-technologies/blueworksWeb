@@ -225,7 +225,7 @@
                                 font-size: 17px; padding: 14px; cursor: pointer;">
                             <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
                             <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;Liens</span>
+                                &nbsp;Inviter</span>
                         </li>
                     </ul>
                 </nav>
@@ -371,7 +371,7 @@
                                                         <li><a href="#"><span class="fa fa-user author-log-ic"></span>My
                                                                 Profile</a>
                                                         </li>
-                                                        <li><a href="/blueworks/logout"><span
+                                                        <li><a href="#" id="logout"><span
                                                                     class="fa fa-lock author-log-ic"></span>Log Out</a>
                                                         </li>
                                                     </ul>
@@ -448,7 +448,7 @@
                                             <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
                                             <span class="mini-click-non" style="position: absolute; top: 10px">
                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;Liens</span>
+                                                &nbsp;Inviter</span>
                                         </li>
                                     </ul>
                                 </nav>
@@ -962,6 +962,10 @@
     <script lang="javascript">
         (function ($) {
             $(document).load($('#username').html(localStorage.getItem('pseudo')));
+            $('#logout').on('click', function () {
+                window.location = '/blueworks/logout?e=' + localStorage.getItem('email');
+                localStorage.clear();
+            });
             $('#btnUpdateType').on('click', function () {
                 $.ajax({
                     url: '/blueworks/type',

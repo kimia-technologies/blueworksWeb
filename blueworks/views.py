@@ -18,14 +18,18 @@ def handler404(request, exception):
 
 
 def home(request):
-    return render(request, template_name='index.html')
+    return redirect('index.html')
+
+
+def index(request):
+    return render(request, 'index.html')
 
 
 def logout(request):
     toks = Token.objects.filter(email=request.GET['e'])
     for tok in toks:
         tok.delete()
-    return render(request, 'index.html')
+    return redirect('start')
 
 
 def reservation(request):
