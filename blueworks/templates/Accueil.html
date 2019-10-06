@@ -797,7 +797,7 @@
                     .from({
                         length: 13
                     }, (x, i) => i + 8).map(t => (
-                        $('<option class="tranche"></option>').val(t).html(t + 'h')
+                        $('<option class="tranche"></option>').val(t + 'h').html(t + 'h')
                     ));
                 tab.forEach(el => {
                     $('[name="tranche"]').append(el);
@@ -879,7 +879,6 @@
                         'b-action': 'CREATE'
                     },
                     data: {
-                        a: true,
                         e: $('#email').val(),
                         t: $('#type').val(),
                         f: $('#formule').val(),

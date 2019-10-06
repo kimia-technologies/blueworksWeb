@@ -19,5 +19,6 @@ urlpatterns = [
     path('values', views.values),
     path('plan', views.plan),
     path('stats/<str:annee>/<str:cible>/', views.stats),
+    path('link', views.link)
 ]
 handler404 = 'blueworks.views.handler404'
