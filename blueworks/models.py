@@ -458,7 +458,7 @@ class Utilisateur(models.Model):
         db_column='CODE', max_length=4, blank=True, null=True)
     # Field name made lowercase.
     photo = models.CharField(
-        db_column='PHOTO', max_length=32, blank=True, null=True)
+        db_column='PHOTO', max_length=255, blank=True, null=True)
     # Field name made lowercase.
     entreprise = models.CharField(
         db_column='ENTREPRISE', max_length=32, blank=True, null=True)

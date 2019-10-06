@@ -198,7 +198,7 @@
                             <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;Coworker</span>
                         </li>
-                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                        <li onclick="window.location='/blueworks/animateur.html'" style="color: grey; font-weight: 500;
                             font-size: 17px; padding: 14px; cursor: pointer;">
                             <i class="fa fa-table icon-wrap sub-icon-mg" aria-hidden="true"></i>
                             <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -222,7 +222,7 @@
                             <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;Notifications</span>
                         </li>
-                        <li onclick="window.location='./500.html'" style="color: grey; font-weight: 500;
+                        <li onclick="window.location='/blueworks/animateur.html'" style="color: grey; font-weight: 500;
                             font-size: 17px; padding: 14px; cursor: pointer;">
                             <i class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i>
                             <span class="mini-click-non" style="position: absolute; top: 10px"> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -499,7 +499,7 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="fa fa-forumbee"
                                                                     aria-hidden="true"></i></span>
-                                                            <select id="type"
+                                                            <select name="type" id="type"
                                                                 class="form-control pro-edt-select form-control-primary input-lg">
                                                             </select>
                                                         </div>
@@ -507,7 +507,7 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="fa fa-bookmark"
                                                                     aria-hidden="true"></i></span>
-                                                            <select id="formule"
+                                                            <select name="formule" id="formule"
                                                                 class="form-control pro-edt-select form-control-primary input-lg">
                                                             </select>
                                                         </div>
@@ -522,7 +522,7 @@
                                                         <div class="input-group mg-b-pro-edt">
                                                             <span class="input-group-addon"><i class="fa fa-clock-o"
                                                                     aria-hidden="true"></i></span>
-                                                            <select id="tranche"
+                                                            <select name="tranche" id="tranche"
                                                                 class="form-control pro-edt-select form-control-primary input-lg">
                                                             </select>
                                                         </div>
@@ -531,11 +531,75 @@
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-sort-numeric-asc"
                                                                     aria-hidden="true"></i></span>
-                                                            <select id="coworker"
+                                                            <select name="coworker" id="coworker"
                                                                 class="form-control pro-edt-select form-control-primary input-lg">
                                                             </select>
                                                         </div>
                                                         <button id="bookBtn" type="button"
+                                                            class="btn btn-custon-four btn-primary" data-dismiss="modal"
+                                                            style="background-color: rgb(0, 111, 186); width: 100%;">
+                                                            <i class="fa fa-check adminpro-informatio"
+                                                                aria-hidden="true"></i>
+                                                            Valider</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="myModalUpdate">
+                                        <div
+                                            class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color: rgb(0, 111, 186)">
+                                                    <h4 class="modal-title" style="font-size: 20px; color: white">
+                                                        Modifier reservation</h4>
+                                                    <button class="close" data-dismiss="modal"
+                                                        style="color: white; margin-top: -25px">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <input type="hidden" id="update_id">
+                                                        <label for="">Type d'espace</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-forumbee"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select name="type" id="typeU"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Formule</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-bookmark"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select name="formule" id="formuleU"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Date</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-calendar"
+                                                                    aria-hidden="true"></i></span>
+                                                            <input type="date" id="jourU" class="form-control input-lg"
+                                                                min="2019-09-30">
+                                                        </div>
+                                                        <label for="">Tranche horaire</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i class="fa fa-clock-o"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select name="tranche" id="trancheU"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <label for="">Nombre de coworker</label>
+                                                        <div class="input-group mg-b-pro-edt">
+                                                            <span class="input-group-addon"><i
+                                                                    class="fa fa-sort-numeric-asc"
+                                                                    aria-hidden="true"></i></span>
+                                                            <select name="coworker" id="coworkerU"
+                                                                class="form-control pro-edt-select form-control-primary input-lg">
+                                                            </select>
+                                                        </div>
+                                                        <button id="updateBtn" type="button"
                                                             class="btn btn-custon-four btn-primary" data-dismiss="modal"
                                                             style="background-color: rgb(0, 111, 186); width: 100%;">
                                                             <i class="fa fa-check adminpro-informatio"
@@ -584,6 +648,7 @@
                                                 <th data-field="NOM" data-sortable="true">Nom</th>
                                                 <th data-field="EMAIL">Email</th>
                                                 <th data-field="FORMULE" data-sortable="true">Formule</th>
+                                                <th data-field="TYPE" data-sortable="true">Type</th>
                                                 <th data-field="SALLE" data-sortable="true">Salle</th>
                                                 <th data-field="NBCOWORKER">Nb coworker</th>
                                                 <th data-field="JOUR" data-sortable="true">Date Reserve</th>
@@ -687,21 +752,23 @@
             $.getJSON('/blueworks/type', function (data) {
                 $('.type').remove();
                 data.map(type => {
-                    $('#type').append($('<option class="type"></option>').attr('invite', type.INV)
+                    $('[name="type"]').append($('<option class="type"></option>').attr('invite',
+                            type.INV)
                         .val(type.NOM)
                         .html(type.NOM));
                 });
-                $('#type option').removeClass('select');
-                $('#type option:eq(0)').addClass('select');
+                $('[name="type"] option').removeClass('select');
+                $('[name="type"] option:eq(0)').addClass('select');
                 populate_formule();
                 populate_coworker();
             });
 
             function populate_formule() {
-                $.getJSON('/blueworks/values?t=' + $('#type').val(), function (data) {
+                $.getJSON('/blueworks/values?t=' + $('[name="type"]').val(), function (data) {
                     $('.formule').remove();
                     data.map(formule => {
-                        $('#formule').append($('<option class="formule"></option>').attr('periode',
+                        $('[name="formule"]').append($('<option class="formule"></option>').attr(
+                                'periode',
                                 formule.PERIODE).val(formule.FORMULE)
                             .html(formule.NOM));
                     });
@@ -713,17 +780,17 @@
 
             function populate_coworker() {
                 const tranches = Array.from({
-                    length: $('#type .select').attr('invite')
+                    length: $('[name="type"] .select').attr('invite')
                 }, (x, i) => i + 1);
                 $('.coworker').remove();
                 tranches.map(t => {
-                    $('#coworker').append($('<option class="coworker"></option>').val(t).html(t));
+                    $('[name="coworker"]').append($('<option class="coworker"></option>').val(t).html(t));
                 });
             }
 
             function populate_tranche() {
                 $('.tranche').remove();
-                const tab = $('#formule .select').attr('periode') == 0 ? [
+                const tab = $('[name="formule"] .select').attr('periode') == 0 ? [
                         $('<option class="tranche">08h - 14h</option>').val('08h-14h'),
                         $('<option class="tranche">14h - 20h</option>').val('14h-20h')
                     ] : Array
@@ -733,28 +800,59 @@
                         $('<option class="tranche"></option>').val(t).html(t + 'h')
                     ));
                 tab.forEach(el => {
-                    $('#tranche').append(el);
+                    $('[name="tranche"]').append(el);
                 });
             }
-            $('#type').on('click', 'option', function () {
-                $('#type option').removeClass('select');
+
+            function askNewToken() {
+                const data = {
+                    e: localStorage.getItem('email'),
+                    t: sessionStorage.getItem('refreshToken')
+                };
+                $.post('127.0.0.1:1111/api.blueworks/token/', data, function (token) {
+                    return token.token;
+                });
+            }
+
+            $('[name="type"]').on('click', 'option', function () {
+                $('[name="type"] option').removeClass('select');
                 $(this).addClass('select');
                 populate_formule();
                 populate_coworker();
             });
-            $('#formule').on('click', 'option', function () {
-                $('#formule option').removeClass('select');
+            $('[name="formule"]').on('click', 'option', function () {
+                $('[name="formule"] option').removeClass('select');
                 $(this).addClass('select');
                 populate_tranche();
             });
             $('#delete').on('click', function () {
-                $.ajax({
+                /*$.ajax({
                     url: '{% url "reservation" %}',
                     method: 'DELETE',
                     data: {
                         id: $('#delete_id').val(),
                     },
                     dataType: 'JSON',
+                    async: true
+                });*/
+                $.ajax({
+                    url: 'http://127.0.0.1:1111/api.blueworks/reservation/r=' + $('#delete_id')
+                        .val(),
+                    type: 'DELETE',
+                    dataType: 'JSON',
+                    contentType: 'application/x-www-form-urlencoded',
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
+                            'token'));
+                        xhr.setRequestHeader('ressource', 'reservation');
+                        xhr.setRequestHeader('b-action', 'DELETE');
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem(
+                            'token'),
+                        'ressource': 'reservation',
+                        'b-action': 'DELETE'
+                    },
                     async: true
                 });
             });
@@ -784,6 +882,40 @@
                         i: $('#coworker').val(),
                         j: $('#jour').val(),
                         h: $('#tranche').val()
+                    },
+                    error: function (xhr) {
+                        if (xhr.status == 403) {
+                            console.log(askNewToken());
+                        }
+                    },
+                    async: true
+                });
+            });
+            $('#updateBtn').on('click', function () {
+                $.ajax({
+                    url: 'http://127.0.0.1:1111/api.blueworks/reservation',
+                    type: 'PATCH',
+                    dataType: 'JSON',
+                    contentType: 'application/x-www-form-urlencoded',
+                    beforeSend: function (xhr, settings) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
+                            'token'));
+                        xhr.setRequestHeader('ressource', 'reservation');
+                        xhr.setRequestHeader('b-action', 'CREATE');
+                    },
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem(
+                            'token'),
+                        'ressource': 'reservation',
+                        'b-action': 'UPDATE'
+                    },
+                    data: {
+                        r: $('#update_id').val(),
+                        t: $('#typeU').val(),
+                        f: $('#formuleU').val(),
+                        i: $('#coworkerU').val(),
+                        j: $('#jourU').val(),
+                        h: $('#trancheU').val()
                     },
                     async: true
                 });

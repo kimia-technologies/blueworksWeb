@@ -33,46 +33,64 @@ def reservation(request):
         rsvs = Reservation.objects.all().order_by('-etat')
         out = []
         nom = ''
-        button = '<button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button data-toggle="modal" data-target="#myModalDelete" title="Trash" class="pd-setting-ed" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'
+        button = '<button data-toggle="modal" title="Edit" class="pd-setting-ed" data-target="#myModalUpdate" onclick="const tab = '"$(this).parent().parent()"'; $('"'#update_id'"').val(tab.find('"'td:eq(0)'"').text()); $('"'#typeU'"').val(tab.find('"'td:eq(4)'"').text()); $('"'#formuleU'"').val(tab.find('"'td:eq(3)'"').text()); $('"'#jourU'"').val(tab.find('"'td:eq(7)'"').text()); $('"'#trancheU'"').val(tab.find('"'td:eq(8)'"').text()); $('"'#coworkerU'"').val(tab.find('"'td:eq(6)'"').text());"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button data-toggle="modal" data-target="#myModalDelete" title="Trash" class="pd-setting-ed" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'
         for rsv in rsvs:
             if(rsv.idformule.periode != 0):
                 nom = '{0}'.format(rsv.idformule.periode) + \
                     ' ' + rsv.idformule.unite
             else:
                 nom = 'consommation direct'
-            out.append({'ID': str(rsv.idreservation), 'NOM': str(rsv.email.nom), 'EMAIL': rsv.email.email, 'FORMULE': nom, 'SALLE': rsv.numespace.nom,
+            out.append({'ID': str(rsv.idreservation), 'NOM': str(rsv.email.nom), 'EMAIL': rsv.email.email, 'FORMULE': nom, 'TYPE': rsv.numespace.nomtype.nomtype, 'SALLE': rsv.numespace.nom,
                         'NBCOWORKER': rsv.nbinvite, 'JOUR': rsv.jour, 'EXPIRE': str(rsv.expire), 'DATE': str(rsv.createdat),
                         'TRANCHE': rsv.tranche, 'ETAT': rsv.etat, 'OPTION': button})
         return JsonResponse(out, safe=False)
-    elif request.method == 'DELETE':
-        id = QueryDict(request.body)
-        rsv = Reservation.objects.get(idreservation=id['id'])
-        rsv.etat = -1
-        rsv.save()
-        return JsonResponse({'msg': 'success'})
-    else:
-        pass
 
 
 def utilisateur(request, status):
+    out = []
+    somme = 0
+    annots = []
+    rsvs = []
+    animateurs = []
     if request.method == 'GET':
-        if request.GET['status'] == 0:
-            users = Utilisateur.objects.filter().order_by('nom')
+        if status == 'customer':
+            users = Utilisateur.objects.exclude(email__in=Possede.objects.filter(Q(nomrole='Animateur') |
+                                                                                 Q(nomrole='Area Manager') |
+                                                                                 Q(nomrole='General Manager'))
+                                                .values_list('email', flat=True)).order_by('nom')
+            button = '<button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>'
+            for user in users:
+                out.append({'NOM': user.nom, 'PRENOM': user.prenom, 'EMAIL': user.email, 'PHONE': user.phone, 'PSEUDO': user.pseudo,
+                            'ANNIV': user.anniv, 'ENT': user.entreprise, 'OPTION': button})
         else:
-            users = Utilisateur.objects.filter().order_by('nom')
-        out = []
-        button = '<button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>'
-        for user in users:
-            out.append({'NOM': user.nom, 'PRENOM': user.prenom, 'EMAIL': user.email, 'PHONE': user.phone, 'PSEUDO': user.pseudo,
-                        'ANNIV': user.anniv, 'ENT': user.entreprise, 'OPTION': button})
+            rsvs = Reservation.objects.filter(Q(etat=1) | Q(
+                etat=-1)).filter(annee=datetime.now().year)
+            annots = rsvs.values('mois', 'annee').annotate(
+                m=Count('mois'), a=Count('annee'))
+            animateurs = Possede.objects.filter(
+                nomrole='Animateur')
+            for anim in animateurs:
+                tmp = []
+                for ano in annots:
+                    mois = ano['mois']
+                    for rsv in rsvs:
+                        inv = Invite.objects.filter(
+                            animateur=anim.email, person=rsv.email)
+                        if rsv.mois == mois and len(inv) != 0:
+                            somme = somme + \
+                                Offre.objects.get(idformule=rsv.idformule,
+                                                  nomtype=rsv.numespace.nomtype).prix
+                    tmp.append({'mois': mois, 'revenu': somme})
+                    somme = 0
+                out.append({'pseudo': anim.email.pseudo, 'nom': anim.email.nom,
+                            'photo': anim.email.photo, 'phone': anim.email.phone, 'stats': tmp})
+                tmp = []
         return JsonResponse(out, safe=False)
     elif request.method == 'DELETE':
         id = QueryDict(request.body)
         user = Utilisateur.objects.get(email=id['e'])
         user.etat = -1
         user.save()
-    else:
-        pass
 
 
 def espace(request):
@@ -339,6 +357,10 @@ def accueil(request):
 
 def coworker(request):
     return render(request, 'coworker.html')
+
+
+def animateur(request):
+    return render(request, 'animateur.html')
 
 
 def salle(request):
