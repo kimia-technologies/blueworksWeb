@@ -358,13 +358,6 @@ def link(request):
         for lk in links:
             out.append(lk.person.email, lk.person.nom)
         return JsonResponse({'link': out})
-    else:
-        id = Employe.objects.get(
-            email=request.POST['e']).idemploye
-        id = str(id).replace('-', '')
-        invited_link = 'http://127.0.0.1:1111/api.blueworks/invite.blueworks/' + \
-            id + '/new/' + request.POST['p']
-        return JsonResponse({'link': invited_link})
 
 
 def dashboard(request):
