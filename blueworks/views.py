@@ -193,7 +193,6 @@ def formule(request):
             out.append({'ID': formule.idformule, 'NOM': nom, 'PERIODE': formule.periode, 'UNITE': formule.unite,
                         'SERVICE': str(servs), 'OPTION': button})
         return JsonResponse(out, safe=False)
-        pass
     elif request.method == 'POST':
         params = request.POST
         formu = Formule(nom=params['f'],
@@ -223,7 +222,6 @@ def service(request):
             out.append({'NOM': serv.nomservice, 'UNITE': serv.unite,
                         'DESCRIPTION': serv.description, 'OPTION': button})
         return JsonResponse(out, safe=False)
-        pass
     elif request.method == 'POST':
         params = request.POST
         Service(params['n'], params['d'], params['u']).save()
@@ -255,12 +253,10 @@ def values(request):
             out.append({'FORMULE': offre.idformule.idformule,
                         'PERIODE': offre.idformule.periode, 'NOM': nom, 'PRIX': offre.prix})
         return JsonResponse(out, safe=False)
-        pass
     elif request.method == 'POST':
         params = request.POST
         Offre(params['t'], params['f'], params['p']).save()
         return JsonResponse({'msg': 'success'})
-        pass
     elif request.method == 'PATCH':
         pass
     else:
@@ -278,12 +274,10 @@ def plan(request):
             out.append(
                 {'SERVICE': pl.nomservice.nomservice, 'QTE': pl.quantite})
         return JsonResponse(out, safe=False)
-        pass
     elif request.method == 'POST':
         params = request.POST
         Offre(params['f'], params['s'], params['p']).save()
         return JsonResponse({'msg': 'success'})
-        pass
     elif request.method == 'PATCH':
         pass
     else:

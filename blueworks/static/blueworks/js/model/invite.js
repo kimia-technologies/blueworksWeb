@@ -1,7 +1,7 @@
 (function ($) {
   $('#invite').on('click', function () {
     $.ajax({
-      url: 'http://127.0.0.1:1111/api.blueworks/account/invite',
+      url: 'http://127.0.0.1:1111/invite.new',
       type: 'POST',
       dataType: 'JSON',
       contentType: 'application/x-www-form-urlencoded',
@@ -22,8 +22,9 @@
         p: $('#email_invite').val(),
         s: 'BlueWorkS1'
       },
-      error: function (xhr) {
-        console.log(xhr);
+      success: function (data) {
+        $('#myModalInviter').modal('hide');
+        alert(data.msg);
       },
       async: true
     });

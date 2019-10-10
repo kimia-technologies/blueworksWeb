@@ -866,6 +866,9 @@
                         d: $('#d').val(),
                     },
                     dataType: 'JSON',
+                    succes: function (data) {
+                        $('#myModalUpdateType').modal('hide');
+                    },
                     async: true
                 });
             });
@@ -879,6 +882,9 @@
                         t: $('#t').val()
                     },
                     dataType: 'JSON',
+                    succes: function (data) {
+                        $('#myModalUpdateSalle').modal('hide');
+                    },
                     async: true
                 });
             });
@@ -892,6 +898,9 @@
                         d: $('#ds').val()
                     },
                     dataType: 'JSON',
+                    succes: function (data) {
+                        $('#myModalUpdateService').modal('hide');
+                    },
                     async: true
                 });
             });
@@ -906,6 +915,9 @@
                         u: $('#u').val()
                     },
                     dataType: 'JSON',
+                    succes: function (data) {
+                        $('#myModalUpdateFormule').modal('hide');
+                    },
                     async: true
                 });
             });
