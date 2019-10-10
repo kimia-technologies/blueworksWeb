@@ -28,10 +28,10 @@ DEBUG = True
 TEMPLATE_DEBUG = False
 
 if DEBUG is False:
-    ALLOWED_HOSTS = ['127.0.0.1:1111', '*', ]
+    ALLOWED_HOSTS = ['127.0.0.1:1112']
 
 if DEBUG is True:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 
 # Application definition
 
