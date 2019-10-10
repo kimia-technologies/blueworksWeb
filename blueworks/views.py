@@ -218,28 +218,26 @@ def service(request):
     if request.method == 'GET':
         services = Service.objects.all()
         out = []
-        for service in services:
-            tmp = []
-            tmp.append(service.nomservice)
-            tmp.append(service.description)
-            tmp.append(service.unite)
-            out.append(tmp)
+        button = '<button data-toggle="modal" title="Edit" class="pd-setting-ed" data-target="#myModalUpdateService" onclick="const tab = '"$(this).parent().parent()"'; $('"'#ns'"').val(tab.find('"'td:eq(0)'"').text()); $('"'#us'"').val(tab.find('"'td:eq(1)'"').text()); $('"'#ds'"').val(tab.find('"'td:eq(2)'"').text());"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#to_delete'"').val('"'service'"'); $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'
+        for serv in services:
+            out.append({'NOM': serv.nomservice, 'UNITE': serv.unite,
+                        'DESCRIPTION': serv.description, 'OPTION': button})
         return JsonResponse(out, safe=False)
         pass
     elif request.method == 'POST':
         params = request.POST
         Service(params['n'], params['d'], params['u']).save()
-        return JsonResponse({'msg': 'success'})
+        return redirect('sites.html')
     elif request.method == 'PATCH':
         params = QueryDict(request.body)
-        serv = Formule.objects.get(nomservice=params['n'])
-        serv.periode = params['d']
+        serv = Service.objects.get(nomservice=params['n'])
+        serv.description = params['d']
         serv.unite = params['u']
         serv.save()
         return JsonResponse({'msg': 'success'})
     else:
         id = QueryDict(request.body)
-        Service.objects.get(nomservice=id['s']).delete()
+        Service.objects.get(nomservice=id['n']).delete()
         return JsonResponse({'msg': 'success'})
 
 
