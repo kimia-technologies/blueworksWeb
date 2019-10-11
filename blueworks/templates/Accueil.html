@@ -675,9 +675,7 @@
                         h: $('#tranche').val()
                     },
                     error: function (xhr) {
-                        if (xhr.status == 403) {
-                            console.log(askNewToken());
-                        }
+                        alert('Utilisateur inexistant');
                     },
                     async: true
                 });
