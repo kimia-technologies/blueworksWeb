@@ -92,9 +92,9 @@
               k: $('#k').val()
             },
             success: function (data) {
-              localStorage.setItem('token', data.token);
               localStorage.setItem('pseudo', data.user.pseudo);
               localStorage.setItem('email', data.user.email);
+              sessionStorage.setItem('tk', data.token);
               sessionStorage.setItem('ipf', data.refreshToken);
               window.location = 'accueil.html';
             },

@@ -632,14 +632,15 @@
                     dataType: 'JSON',
                     contentType: 'application/x-www-form-urlencoded',
                     beforeSend: function (xhr, settings) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
-                            'token'));
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage
+                            .getItem(
+                                'tk'));
                         xhr.setRequestHeader('ressource', 'reservation');
                         xhr.setRequestHeader('b-action', 'DELETE');
                     },
                     headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem(
-                            'token'),
+                        'Authorization': 'Bearer ' + sessionStorage.getItem(
+                            'tk'),
                         'ressource': 'reservation',
                         'b-action': 'DELETE'
                     },
@@ -653,14 +654,15 @@
                     dataType: 'JSON',
                     contentType: 'application/x-www-form-urlencoded',
                     beforeSend: function (xhr, settings) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
-                            'token'));
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage
+                            .getItem(
+                                'tk'));
                         xhr.setRequestHeader('ressource', 'reservation');
                         xhr.setRequestHeader('b-action', 'CREATE');
                     },
                     headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem(
-                            'token'),
+                        'Authorization': 'Bearer ' + sessionStorage.getItem(
+                            'tk'),
                         'ressource': 'reservation',
                         'b-action': 'CREATE'
                     },
@@ -687,14 +689,15 @@
                     dataType: 'JSON',
                     contentType: 'application/x-www-form-urlencoded',
                     beforeSend: function (xhr, settings) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
-                            'token'));
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage
+                            .getItem(
+                                'tk'));
                         xhr.setRequestHeader('ressource', 'reservation');
                         xhr.setRequestHeader('b-action', 'CREATE');
                     },
                     headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem(
-                            'token'),
+                        'Authorization': 'Bearer ' + sessionStorage.getItem(
+                            'tk'),
                         'ressource': 'reservation',
                         'b-action': 'UPDATE'
                     },
