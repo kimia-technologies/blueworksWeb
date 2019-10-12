@@ -170,13 +170,35 @@ def type(request):
         return JsonResponse({'msg': 'success'})
 
 
+def site(request):
+    if request.method == 'GET':
+        sites = Site.objects.all()
+        out = []
+        for st in sites:
+            out.append({'NOM': site.nomsite, 'QUARTIER': site.quartier})
+        return JsonResponse(out, safe=False)
+    elif request.method == 'POST':
+        params = request.POST
+        Site(params['n'], params['q'], params['d']).save()
+        return redirect('sites.html')
+    elif request.method == 'PATCH':
+        params = request.body
+        st = Site.objects.get(nomsite=params['n'])
+        st.quartier = params['q']
+        st.description = params['d']
+        st.save()
+        return JsonResponse({'msg': 'success'})
+    else:
+        Site.objects.get(nomsite=request.GET['n']).delete()
+        return JsonResponse({'msg': 'success'})
+
+
 def formule(request):
     if request.method == 'GET':
         formules = Formule.objects.all()
         button = '<button data-toggle="tooltip" title="formule" class="pd-setting-ed">Add service</button><button data-toggle="modal" title="Edit" class="pd-setting-ed" data-target="#myModalUpdateFormule" onclick="const tab = '"$(this).parent().parent()"'; $('"'#update_formule_id'"').val(tab.find('"'td:eq(0)'"').text()); $('"'#f'"').val(tab.find('"'td:eq(1)'"').text()); $('"'#p'"').val(tab.find('"'td:eq(2)'"').text()); $('"'#u'"').val(tab.find('"'td:eq(3)'"').text())"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#to_delete'"').val('"'formule'"'); $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>'
         out = []
         nom = ''
-        print('out')
         for formule in formules:
             servs = []
             if formule.nom == None:
@@ -370,7 +392,11 @@ def animateur(request):
 
 def salle(request):
     types = Type.objects.all()
-    out = []
+    sites = Site.objects.all()
+    tps = []
+    sts = []
     for typ in types:
-        out.append(typ.nomtype)
-    return render(request, 'sites.html', {'types': out})
+        tps.append(typ.nomtype)
+    for st in sites:
+        sts.append(st.nomsite)
+    return render(request, 'sites.html', {'types': tps, 'sites': sts})

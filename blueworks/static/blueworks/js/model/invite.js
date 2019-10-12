@@ -6,14 +6,14 @@
       dataType: 'JSON',
       contentType: 'application/x-www-form-urlencoded',
       beforeSend: function (xhr, settings) {
-        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem(
-          'token'));
+        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem(
+          'tk'));
         xhr.setRequestHeader('ressource', 'utilisateur');
         xhr.setRequestHeader('b-action', 'CREATE');
       },
       headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem(
-          'token'),
+        'Authorization': 'Bearer ' + sessionStorage.getItem(
+          'tk'),
         'ressource': 'utilisateur',
         'b-action': 'CREATE'
       },

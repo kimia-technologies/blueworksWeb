@@ -14,6 +14,7 @@ urlpatterns = [
     path('sites.html/', views.salle),
     path('espace', views.espace, name='space'),
     path('type', views.type, name='type'),
+    path('site', views.site, name='site'),
     path('service', views.service, name='service'),
     path('formule', views.formule, name='formule'),
     path('values', views.values),

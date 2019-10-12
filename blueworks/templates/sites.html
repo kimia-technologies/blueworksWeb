@@ -337,7 +337,8 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color: rgb(0, 111, 186)">
-                                            <h4 class="modal-title" style="font-size: 20px; color: white">Nouvelle salle
+                                            <h4 class="modal-title" style="font-size: 20px; color: white">Nouvelle
+                                                espace
                                             </h4>
                                             <button class="close" data-dismiss="modal"
                                                 style="color: white; margin-top: -25px">&times;</button>
@@ -345,7 +346,7 @@
                                         <div class="modal-body">
                                             <div>
                                                 <form action='{% url "space" %}' method="post">
-                                                    <label for="">Nom de salle</label>
+                                                    <label for="">Nom de espace</label>
                                                     <div class="input-group mg-b-pro-edt">
                                                         <span class="input-group-addon"><i class="fa fa-medium"
                                                                 aria-hidden="true"></i></span>
@@ -363,7 +364,17 @@
                                                             {% endfor %}
                                                         </select>
                                                     </div>
-                                                    <input type="hidden" name="s" value="BlueWorkS1">
+                                                    <label for="">Site</label>
+                                                    <div class="input-group mg-b-pro-edt">
+                                                        <span class="input-group-addon"><i class="fa fa-forumbee"
+                                                                aria-hidden="true"></i></span>
+                                                        <select name="s"
+                                                            class="form-control pro-edt-select form-control-primary input-lg">
+                                                            {% for site in sites %}
+                                                            <option value="{{site}}">{{site}}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
                                                     <button type="submit" class="btn btn-custon-four btn-primary"
                                                         style="background-color: rgb(0, 111, 186); width: 10%; margin-left: 45%">
                                                         <i class="fa fa-check adminpro-informatio"
@@ -379,7 +390,8 @@
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header" style="background-color: rgb(0, 111, 186)">
-                                            <h4 class="modal-title" style="font-size: 20px; color: white">Modifier salle
+                                            <h4 class="modal-title" style="font-size: 20px; color: white">Modifier
+                                                espace
                                             </h4>
                                             <button class="close" data-dismiss="modal"
                                                 style="color: white; margin-top: -25px">&times;</button>
@@ -387,7 +399,7 @@
                                         <div class="modal-body">
                                             <div>
                                                 <input type="hidden" id="update_id">
-                                                <label for="">Nom de salle</label>
+                                                <label for="">Nom de l'espace</label>
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-medium"
                                                             aria-hidden="true"></i></span>
@@ -405,7 +417,6 @@
                                                         {% endfor %}
                                                     </select>
                                                 </div>
-                                                <input type="hidden" name="s" value="BlueWorkS1">
                                                 <button id="btnUpdateSalle" type="button"
                                                     class="btn btn-custon-four btn-primary" data-dismiss="modal"
                                                     style="background-color: rgb(0, 111, 186); width: 10%; margin-left: 45%">
@@ -619,7 +630,7 @@
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: rgb(0, 111, 186)">
-                                        <h4 class="modal-title" style="font-size: 20px; color: white">Salles /
+                                        <h4 class="modal-title" style="font-size: 20px; color: white">Espaces /
                                             Formules</h4>
                                         <button class="close" data-dismiss="modal"
                                             style="color: white; margin-top: -25px">&times;</button>
@@ -629,7 +640,7 @@
                                             <div class="col-sm-6">
                                                 <div class="card">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">Salles</h5>
+                                                        <h5 class="card-title">Espaces</h5>
                                                         <ul>
                                                             <li>S01</li>
                                                             <li>S02</li>
@@ -666,7 +677,7 @@
                                 <li class="active"><a href="#types"><i class="fa fa-forumbee"
                                             aria-hidden="true"></i>Types</a></li>
                                 <li><a href="#salles"><i class="fa fa-forumbee" aria-hidden="true"></i>
-                                        Salles</a></li>
+                                        Espaces</a></li>
                                 <li><a href="#formules"><i class="fa fa-bookmark" aria-hidden="true"></i> Formules</a>
                                 </li>
                                 <li><a href="#services"><i class="fa fa-bookmark" aria-hidden="true"></i> Services</a>
@@ -699,7 +710,7 @@
                                 </div>
                                 <div class="product-tab-list tab-pane fade" id="salles">
                                     <div class="static-table-list">
-                                        <table id="salle" class="table hover-table" data-url='{% url "space" %}'
+                                        <table id="espace" class="table hover-table" data-url='{% url "space" %}'
                                             data-toggle="table" data-search="true" data-show-columns="true"
                                             data-show-refresh="true" data-show-toggle="true" data-cookie="true"
                                             data-cookie-id-table="saveId" data-show-export="true"
@@ -707,7 +718,7 @@
                                             <thead>
                                                 <tr>
                                                     <th data-field="ID">ID</th>
-                                                    <th data-field="NOM">Nom de la salle</th>
+                                                    <th data-field="NOM">Nom de l'espace</th>
                                                     <th data-field="TYPE">Type</th>
                                                     <th data-field="OCCP">Nb d'occupants</th>
                                                     <th data-field="OPTION">Options</th>
