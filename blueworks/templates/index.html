@@ -96,7 +96,13 @@
               localStorage.setItem('email', data.user.email);
               sessionStorage.setItem('tk', data.token);
               sessionStorage.setItem('ipf', data.refreshToken);
-              window.location = 'accueil.html';
+              $.post('/blueworks/session', {
+                user: JSON.stringify(data.user),
+                token: data.token,
+                refreshToken: data.refreshToken
+              }, function (data) {
+                window.location = 'accueil.html';
+              });
             },
             error: function (xhr, err) {
               $('#error').html(xhr.responseJSON.msg).css({

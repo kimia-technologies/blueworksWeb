@@ -57,6 +57,15 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'C:/wamp64/www/blueworks'
+    }
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
 ROOT_URLCONF = 'blueworksManageApp.urls'
 
 TEMPLATES = [

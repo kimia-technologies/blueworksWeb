@@ -25,6 +25,19 @@ def index(request):
     return render(request, 'index.html')
 
 
+def session(request):
+    if request.method == 'POST':
+        params = request.POST
+        user = json.loads(params['user'])
+        request.session[params['token']] = {
+            'user': user, 'rf': params['refreshToken']}
+        return JsonResponse({'msg': 'created'})
+    else:
+        if request.session.get(request.GET['token']):
+            return JsonResponse({'msg': request.session.get(request.GET['token'])})
+        return JsonResponse({'msg': 'not found'})
+
+
 def logout(request):
     toks = Token.objects.filter(email=request.GET['e'])
     for tok in toks:
