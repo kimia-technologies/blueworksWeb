@@ -75,10 +75,9 @@ def utilisateur(request, status):
                                                                                  Q(nomrole='Area Manager') |
                                                                                  Q(nomrole='General Manager'))
                                                 .values_list('email', flat=True)).order_by('nom')
-            button = '<button data-toggle="modal" title="Trash" class="pd-setting-ed" data-target="#myModalDelete" onclick="const tab = '"$(this).parent().parent()"'; $('"'#delete_id'"').val(tab.find('"'td:eq(0)'"').text());"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>'
             for user in users:
                 out.append({'NOM': user.nom, 'PRENOM': user.prenom, 'EMAIL': user.email, 'PHONE': user.phone, 'PSEUDO': user.pseudo,
-                            'ANNIV': user.anniv, 'ENT': user.entreprise, 'OPTION': button})
+                            'ANNIV': user.anniv, 'ENT': user.entreprise})
         else:
             rsvs = Reservation.objects.filter(Q(etat=1) | Q(
                 etat=-1)).filter(annee=datetime.now().year)
@@ -385,6 +384,14 @@ def link(request):
         for lk in links:
             out.append(lk.person.email, lk.person.nom)
         return JsonResponse({'link': out})
+
+
+def invent(request):
+    site = Site.objects.all().count()
+    typ = Type.objects.all().count()
+    formule = Formule.objects.all().count()
+    service = Service.objects.all().count()
+    return JsonResponse({'site': site, 'type': typ, 'formule': formule, 'service': service})
 
 
 def dashboard(request):
