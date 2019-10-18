@@ -358,8 +358,8 @@ def stats(request, annee, cible):
             tmp = []
     else:
         types = Type.objects.all()
-        rev = 0
         for typ in types:
+            rev = 0
             tmp = []
             for ano in annots:
                 mois = ano['mois']
@@ -368,12 +368,11 @@ def stats(request, annee, cible):
                         somme = somme + \
                             Offre.objects.get(idformule=rsv.idformule,
                                               nomtype=rsv.numespace.nomtype).prix
-                        rev = rev + somme
                 tmp.append({'mois': mois, 'revenu': somme})
                 somme = 0
+            for r in tmp:
+                rev += r.get('revenu')
             out.append({'nom': typ.nomtype, 'somme': rev, 'stats': tmp})
-            rev = 0
-            tmp = []
     return JsonResponse(out, safe=False)
 
 
